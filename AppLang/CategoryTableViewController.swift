@@ -1,29 +1,31 @@
 //
-//  UnitTableView.swift
-//  
+//  CategoryTableViewController.swift
+//  AppLang
 //
-//  Created by Emir Kartal on 19.04.2017.
-//
+//  Created by Emir Kartal on 20.04.2017.
+//  Copyright © 2017 Emir Kartal. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import SwiftyJSON
 
-class UnitTableView: UITableViewController {
+class CategoryTableViewController: UITableViewController {
     
-    //http://www.giflisozluk.com/api/v1/topcategory
-    var unitArr = [String]()
-    var json:JSON = []
     var selectedTopCatId = 0
+    var selectedCatId = 0
+    var categoryArr = [String]()
+    var json:JSON = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         getJSON()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,55 +42,52 @@ class UnitTableView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return unitArr.count
+        return categoryArr.count
     }
-
+   
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "unitIdentifier", for: indexPath)
-        
-        cell.textLabel?.text = unitArr[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
 
+        cell.textLabel?.text = categoryArr[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedTopCatId = json[indexPath.row]["Id"].int!
+        selectedCatId = json[indexPath.row]["Id"].int!
         
-        performSegue(withIdentifier: "toCategory", sender: selectedTopCatId)
+        performSegue(withIdentifier: "toSubCategory", sender: selectedCatId)
         
     }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toCategory" {
-            if let vc = segue.destination as? CategoryTableViewController {
-                vc.selectedTopCatId = sender as! Int
+        if segue.identifier == "toSubCategory" {
+            if let vc = segue.destination as? SubCategoryTableViewController {
+                vc.selectedSubCatId = sender as! Int
             }
         }
     }
     
-
     func getJSON() {
-        let url = "http://www.giflisozluk.com/api/v1/topcategory"
+        
+        let url = "http://www.giflisozluk.com/api/v1/Category/GetCategoriesByTopCategoryId/\(selectedTopCatId)"
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             
             if let data = response.result.value{
                 self.json = JSON(data)
                 for unit in self.json{
-                    let unitName = unit.1["Title"].string
+                    let CategoryName = unit.1["Title"].string
                     
-                    self.unitArr.append(unitName!)
+                    self.categoryArr.append(CategoryName!)
                 }
                 self.tableView.reloadData()
-                            }else {
+            }else {
                 print("error")
             }
             
         }
-        
-
-    
     }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

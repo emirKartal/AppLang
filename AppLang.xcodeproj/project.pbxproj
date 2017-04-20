@@ -14,6 +14,8 @@
 		3075A3211EA7F2D200988815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3075A3201EA7F2D200988815 /* Assets.xcassets */; };
 		3075A3241EA7F2D200988815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3075A3221EA7F2D200988815 /* LaunchScreen.storyboard */; };
 		3075A32E1EA7F50000988815 /* UnitTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3075A32D1EA7F50000988815 /* UnitTableView.swift */; };
+		30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */; };
+		30BBCC071EA92C0F00D864B1 /* SubCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		3075A3231EA7F2D200988815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3075A3251EA7F2D200988815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3075A32D1EA7F50000988815 /* UnitTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTableView.swift; sourceTree = "<group>"; };
+		30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewController.swift; sourceTree = "<group>"; };
 		3209382EAB26CE56F830CE35 /* Pods_AppLang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA462C2453101886B3968056 /* Pods-AppLang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppLang/Pods-AppLang.debug.xcconfig"; sourceTree = "<group>"; };
 		D308F8CBE4F9D93BF90D86E1 /* Pods-AppLang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLang.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppLang/Pods-AppLang.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,9 +71,11 @@
 				3075A32D1EA7F50000988815 /* UnitTableView.swift */,
 				3075A31B1EA7F2D200988815 /* ViewController.swift */,
 				3075A31D1EA7F2D200988815 /* Main.storyboard */,
+				30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */,
 				3075A3201EA7F2D200988815 /* Assets.xcassets */,
 				3075A3221EA7F2D200988815 /* LaunchScreen.storyboard */,
 				3075A3251EA7F2D200988815 /* Info.plist */,
+				30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */,
 			);
 			path = AppLang;
 			sourceTree = "<group>";
@@ -214,9 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30BBCC071EA92C0F00D864B1 /* SubCategoryTableViewController.swift in Sources */,
 				3075A32E1EA7F50000988815 /* UnitTableView.swift in Sources */,
 				3075A31C1EA7F2D200988815 /* ViewController.swift in Sources */,
 				3075A31A1EA7F2D200988815 /* AppDelegate.swift in Sources */,
+				30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
