@@ -12,18 +12,13 @@ import SwiftyJSON
 
 class SubCategoryTableViewController: UITableViewController {
 
-    var selectedSubCatId = 0
     var subCategoryArr = [String]()
     var json:JSON = []
+    var frCatDic = [String:Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        navigationItem.title = frCatDic["subCatNavTitle"] as? String
         getJSON()
     }
     
@@ -55,7 +50,7 @@ class SubCategoryTableViewController: UITableViewController {
     
     func getJSON() {
         
-        let url = "http://www.giflisozluk.com/api/v1/SubCategory/GetSubCategoriesByCategoryId/\(selectedSubCatId)"
+        let url = "http://www.giflisozluk.com/api/v1/SubCategory/GetSubCategoriesByCategoryId/\(frCatDic["selectedCatId"] as! Int)"
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             
             if let data = response.result.value{

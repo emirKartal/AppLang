@@ -12,8 +12,8 @@ import SwiftyJSON
 
 class CategoryTableViewController: UITableViewController {
     
-    var selectedTopCatId = 0
-    var selectedCatId = 0
+    
+    var frTopCatDic = [String:Any]()
     var categoryArr = [String]()
     var json:JSON = []
 
@@ -25,9 +25,11 @@ class CategoryTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        navigationItem.title = frTopCatDic["catNavTitle"] as? String
         getJSON()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,23 +56,23 @@ class CategoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCatId = json[indexPath.row]["Id"].int!
+        let toSubCatDic:[String:Any] = ["selectedCatId": json[indexPath.row]["Id"].int!, "subCatNavTitle": json[indexPath.row]["Title"].string!]
         
-        performSegue(withIdentifier: "toSubCategory", sender: selectedCatId)
+        performSegue(withIdentifier: "toSubCategory", sender: toSubCatDic)
         
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSubCategory" {
             if let vc = segue.destination as? SubCategoryTableViewController {
-                vc.selectedSubCatId = sender as! Int
+                vc.frCatDic = sender as! [String:Any]
             }
         }
     }
     
     func getJSON() {
         
-        let url = "http://www.giflisozluk.com/api/v1/Category/GetCategoriesByTopCategoryId/\(selectedTopCatId)"
+        let url = "http://www.giflisozluk.com/api/v1/Category/GetCategoriesByTopCategoryId/\(frTopCatDic["selectedTopCatId"] as! Int)"
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             
             if let data = response.result.value{
@@ -80,6 +82,7 @@ class CategoryTableViewController: UITableViewController {
                     
                     self.categoryArr.append(CategoryName!)
                 }
+                
                 self.tableView.reloadData()
             }else {
                 print("error")

@@ -15,14 +15,11 @@ class UnitTableView: UITableViewController {
     //http://www.giflisozluk.com/api/v1/topcategory
     var unitArr = [String]()
     var json:JSON = []
-    var selectedTopCatId = 0
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getJSON()
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        
         
     }
 
@@ -54,15 +51,14 @@ class UnitTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedTopCatId = json[indexPath.row]["Id"].int!
-        
-        performSegue(withIdentifier: "toCategory", sender: selectedTopCatId)
+        let toCatDic:[String:Any] = ["selectedTopCatId": json[indexPath.row]["Id"].int!, "catNavTitle": json[indexPath.row]["Title"].string!]
+        performSegue(withIdentifier: "toCategory", sender: toCatDic)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCategory" {
             if let vc = segue.destination as? CategoryTableViewController {
-                vc.selectedTopCatId = sender as! Int
+                vc.frTopCatDic = sender as! [String:Any]
             }
         }
     }

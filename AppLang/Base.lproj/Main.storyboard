@@ -25,9 +25,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2087" y="163"/>
+            <point key="canvasLocation" x="2066" y="872"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Menu-->
         <scene sceneID="0Sd-wQ-Kd3">
             <objects>
                 <tableViewController id="lb4-fc-Ws7" customClass="UnitTableView" customModule="AppLang" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,7 +59,7 @@
                             <outlet property="delegate" destination="lb4-fc-Ws7" id="bVJ-5n-2Mt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="EAb-WP-APD"/>
+                    <navigationItem key="navigationItem" title="Menu" id="EAb-WP-APD"/>
                     <connections>
                         <segue destination="ZJW-oM-nKc" kind="show" identifier="toCategory" id="Sa4-n4-85z"/>
                     </connections>
@@ -143,7 +143,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Hj-cC-evI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241" y="1038"/>
+            <point key="canvasLocation" x="2065" y="164"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yXe-2n-07K">
