@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		1C1698AC96F9125120D77381 /* Pods_AppLang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3209382EAB26CE56F830CE35 /* Pods_AppLang.framework */; };
+		30560CD51EAE9AF900BF1A3B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */; };
+		30560CD71EAE9B4100BF1A3B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30560CD61EAE9B4100BF1A3B /* LoginViewController.swift */; };
 		3075A31A1EA7F2D200988815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3075A3191EA7F2D200988815 /* AppDelegate.swift */; };
 		3075A31C1EA7F2D200988815 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3075A31B1EA7F2D200988815 /* ViewController.swift */; };
 		3075A31F1EA7F2D200988815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3075A31D1EA7F2D200988815 /* Main.storyboard */; };
 		3075A3211EA7F2D200988815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3075A3201EA7F2D200988815 /* Assets.xcassets */; };
 		3075A3241EA7F2D200988815 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3075A3221EA7F2D200988815 /* LaunchScreen.storyboard */; };
 		3075A32E1EA7F50000988815 /* UnitTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3075A32D1EA7F50000988815 /* UnitTableView.swift */; };
+		30A616561EAFB36500240D7B /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A616551EAFB36500240D7B /* QuestionViewController.swift */; };
+		30A616581EAFBB0B00240D7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A616571EAFBB0B00240D7B /* ResultViewController.swift */; };
 		30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */; };
 		30BBCC071EA92C0F00D864B1 /* SubCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		30560CD61EAE9B4100BF1A3B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3075A3161EA7F2D200988815 /* AppLang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppLang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3075A3191EA7F2D200988815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3075A31B1EA7F2D200988815 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,6 +33,8 @@
 		3075A3231EA7F2D200988815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3075A3251EA7F2D200988815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3075A32D1EA7F50000988815 /* UnitTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTableView.swift; sourceTree = "<group>"; };
+		30A616551EAFB36500240D7B /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		30A616571EAFBB0B00240D7B /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewController.swift; sourceTree = "<group>"; };
 		3209382EAB26CE56F830CE35 /* Pods_AppLang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,10 +80,14 @@
 				3075A32D1EA7F50000988815 /* UnitTableView.swift */,
 				30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */,
 				30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */,
+				30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */,
+				30560CD61EAE9B4100BF1A3B /* LoginViewController.swift */,
 				3075A31B1EA7F2D200988815 /* ViewController.swift */,
 				3075A3201EA7F2D200988815 /* Assets.xcassets */,
 				3075A3221EA7F2D200988815 /* LaunchScreen.storyboard */,
 				3075A3251EA7F2D200988815 /* Info.plist */,
+				30A616551EAFB36500240D7B /* QuestionViewController.swift */,
+				30A616571EAFBB0B00240D7B /* ResultViewController.swift */,
 			);
 			path = AppLang;
 			sourceTree = "<group>";
@@ -220,11 +232,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30560CD71EAE9B4100BF1A3B /* LoginViewController.swift in Sources */,
 				30BBCC071EA92C0F00D864B1 /* SubCategoryTableViewController.swift in Sources */,
 				3075A32E1EA7F50000988815 /* UnitTableView.swift in Sources */,
 				3075A31C1EA7F2D200988815 /* ViewController.swift in Sources */,
+				30560CD51EAE9AF900BF1A3B /* RegisterViewController.swift in Sources */,
 				3075A31A1EA7F2D200988815 /* AppDelegate.swift in Sources */,
+				30A616561EAFB36500240D7B /* QuestionViewController.swift in Sources */,
 				30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */,
+				30A616581EAFBB0B00240D7B /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
