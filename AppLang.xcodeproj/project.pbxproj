@@ -18,6 +18,7 @@
 		3075A32E1EA7F50000988815 /* UnitTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3075A32D1EA7F50000988815 /* UnitTableView.swift */; };
 		30A616561EAFB36500240D7B /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A616551EAFB36500240D7B /* QuestionViewController.swift */; };
 		30A616581EAFBB0B00240D7B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A616571EAFBB0B00240D7B /* ResultViewController.swift */; };
+		30B7F7841EB8F3190096EA4B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B7F7831EB8F3190096EA4B /* HomeViewController.swift */; };
 		30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */; };
 		30BBCC071EA92C0F00D864B1 /* SubCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,7 @@
 		3075A32D1EA7F50000988815 /* UnitTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTableView.swift; sourceTree = "<group>"; };
 		30A616551EAFB36500240D7B /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		30A616571EAFBB0B00240D7B /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		30B7F7831EB8F3190096EA4B /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewController.swift; sourceTree = "<group>"; };
 		3209382EAB26CE56F830CE35 /* Pods_AppLang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 				3075A3251EA7F2D200988815 /* Info.plist */,
 				30A616551EAFB36500240D7B /* QuestionViewController.swift */,
 				30A616571EAFBB0B00240D7B /* ResultViewController.swift */,
+				30B7F7831EB8F3190096EA4B /* HomeViewController.swift */,
 			);
 			path = AppLang;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				3075A32E1EA7F50000988815 /* UnitTableView.swift in Sources */,
 				3075A31C1EA7F2D200988815 /* ViewController.swift in Sources */,
 				30560CD51EAE9AF900BF1A3B /* RegisterViewController.swift in Sources */,
+				30B7F7841EB8F3190096EA4B /* HomeViewController.swift in Sources */,
 				3075A31A1EA7F2D200988815 /* AppDelegate.swift in Sources */,
 				30A616561EAFB36500240D7B /* QuestionViewController.swift in Sources */,
 				30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */,
@@ -364,12 +368,14 @@
 			baseConfigurationReference = CA462C2453101886B3968056 /* Pods-AppLang.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AppLang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emir.AppLang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -378,12 +384,14 @@
 			baseConfigurationReference = D308F8CBE4F9D93BF90D86E1 /* Pods-AppLang.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AppLang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.emir.AppLang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

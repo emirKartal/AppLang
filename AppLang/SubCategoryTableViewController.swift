@@ -47,6 +47,23 @@ class SubCategoryTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let questionId = json[indexPath.row]["Id"].int
+        performSegue(withIdentifier: "toQuestion", sender: questionId)
+      
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toQuestion" {
+            if let vc = segue.destination as? QuestionViewController {
+                vc.qId = sender as! Int
+                
+            }
+        }
+    }
+    
     
     func getJSON() {
         
