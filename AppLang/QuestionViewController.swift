@@ -38,32 +38,9 @@ class QuestionViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        // 
-        
-        let xWidth = AnswerView.frame.width;
-        let yHeight = AnswerView.frame.height;
-        
-        var x = Double(xWidth / 20)
-        var y = Double(yHeight / 10)
-        
         QuestionLbl.text = questionArr[questionNum]
+        createAnswers()
         
-        let sentence = answerArr[questionNum]
-        
-        wordArr = sentence.components(separatedBy: " ")
-        
-        for word in wordArr {
-            
-            createButton(word: word, x: x , y: y)
-            
-            x += Double(xWidth / 3)
-            if x > Double(xWidth){
-                x = Double(xWidth / 20)
-                y += Double(yHeight / 2)
-            }
-            
-        }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,14 +76,45 @@ class QuestionViewController: UIViewController {
             sender.isHidden = true
         }
         
-        if questionArr[questionNum] == AnswerTxt.text { // cevaplar uzerinden kontrol etmek gerekiyor...
+        if answerArr[questionNum] == AnswerTxt.text {
             questionNum += 1
-            print(questionNum)
+            wordNum = 0
+            AnswerTxt.text = ""
+            wordCheck = ""
+            QuestionLbl.text = questionArr[questionNum]
+            createAnswers()
+            
         }
         
         // ceviri yanlis ise buton rengi saniyelik kirmizi olacak Ses olacak. O buton text field e yazilmayacak.
         // dogru ise ses ve saniyelik yesil 
         
+    }
+    func createAnswers() {
+        
+        let xWidth = AnswerView.frame.width
+        let yHeight = AnswerView.frame.height
+        
+        var x = Double(xWidth / 20)
+        var y = Double(yHeight / 10)
+        
+        let sentence = answerArr[questionNum]
+        
+        wordArr = sentence.components(separatedBy: " ")
+        wordArr.shuffle()
+        
+        for word in wordArr {
+            
+            createButton(word: word, x: x , y: y)
+            
+            x += Double(xWidth / 3)
+            if x > Double(xWidth){
+                x = Double(xWidth / 20)
+                y += Double(yHeight / 2)
+            }
+            
+        }
+    
     }
     
     func getJSON() {
@@ -131,3 +139,17 @@ class QuestionViewController: UIViewController {
     }
 
 }
+
+extension Array
+{
+    mutating func shuffle()
+    {
+        for _ in 0..<10
+        {
+            sort { (_,_) in arc4random() < arc4random() }
+        }
+    }
+}
+
+
+
