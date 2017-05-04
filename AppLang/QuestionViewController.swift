@@ -67,7 +67,7 @@ class QuestionViewController: UIViewController {
             
         }
 
-        
+        print("test")
     }
     
     func createButton (word : String, x : Double , y : Double) {
