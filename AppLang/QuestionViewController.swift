@@ -24,6 +24,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var QuestionLbl: UILabel!
     @IBOutlet weak var AnswerTxt: UITextField!
     @IBOutlet weak var AnswerView: UIView!
+    @IBOutlet weak var labelQuestionIndex: UILabel!
+    @IBOutlet weak var labelQuestionCount: UILabel!
     
     
     override func viewDidLoad() {
@@ -41,6 +43,9 @@ class QuestionViewController: UIViewController {
         QuestionLbl.text = questionArr[questionNum]
         createAnswers()
         
+        labelQuestionIndex.text = String(questionNum)
+        labelQuestionCount.text = String(questionArr.count)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,19 +62,24 @@ class QuestionViewController: UIViewController {
             QuestionLbl.text = questionArr[questionNum]
             createAnswers()
             
+            labelQuestionIndex.text = String(questionNum)
+            labelQuestionCount.text = String(questionArr.count)
+            
         }
 
         
     }
     
-    
-    
     func createButton (word : String, x : Double , y : Double) {
         
-        let button = UIButton(frame: CGRect(x: x, y: y, width: 80.0, height: 10.0)) // butonun genisligi cumle uzunlugu ile oran
+        let button = UIButton(frame: CGRect(x: x, y: y, width: 80.0, height: 30.0)) // butonun genisligi cumle uzunlugu ile oran
         
+        button.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor(red:0.83, green:0.83, blue:0.83, alpha:1.0).cgColor
         button.setTitle(word, for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.addTarget(self, action: #selector(btnPressed), for: .touchUpInside)
         
         self.AnswerView.addSubview(button)
@@ -97,6 +107,7 @@ class QuestionViewController: UIViewController {
         // dogru ise ses ve saniyelik yesil 
         
     }
+    
     func createAnswers() {
         
         let xWidth = AnswerView.frame.width
@@ -117,7 +128,7 @@ class QuestionViewController: UIViewController {
             x += Double(xWidth / 3)
             if x > Double(xWidth){
                 x = Double(xWidth / 20)
-                y += Double(yHeight / 2)
+                y += Double(yHeight / 4)
             }
             
         }
@@ -126,7 +137,7 @@ class QuestionViewController: UIViewController {
     
     func getJSON() {
         
-        let url = "http://www.giflisozluk.com/api/v1/Question/GetAllQuestions?subcategoryId=\(qId)&fromLanguageId=1&toLanguageId=2"
+        let url = "http://www.giflisozluk.com/api/v1/Question/GetAllQuestions?subcategoryId=\(qId)&fromLanguageId=2&toLanguageId=1"
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             
             if let data = response.result.value{
