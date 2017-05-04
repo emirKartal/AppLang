@@ -76,6 +76,9 @@
                                 <rect key="frame" x="280" y="617" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="btnNext:" destination="Veu-3w-6FL" eventType="touchUpInside" id="YAA-5C-isl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TN-U6-Wty">
                                 <rect key="frame" x="146" y="617" width="83" height="30"/>

@@ -47,6 +47,22 @@ class QuestionViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func btnNext(_ sender: Any) {
+        
+        if answerArr[questionNum] == AnswerTxt.text {
+            questionNum += 1
+            wordNum = 0
+            AnswerTxt.text = ""
+            wordCheck = ""
+            QuestionLbl.text = questionArr[questionNum]
+            createAnswers()
+            
+        }
+
+        
+    }
+    
+    
     
     func createButton (word : String, x : Double , y : Double) {
         
@@ -76,15 +92,6 @@ class QuestionViewController: UIViewController {
             sender.isHidden = true
         }
         
-        if answerArr[questionNum] == AnswerTxt.text {
-            questionNum += 1
-            wordNum = 0
-            AnswerTxt.text = ""
-            wordCheck = ""
-            QuestionLbl.text = questionArr[questionNum]
-            createAnswers()
-            
-        }
         
         // ceviri yanlis ise buton rengi saniyelik kirmizi olacak Ses olacak. O buton text field e yazilmayacak.
         // dogru ise ses ve saniyelik yesil 
