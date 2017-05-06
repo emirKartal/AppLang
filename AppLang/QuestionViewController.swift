@@ -197,17 +197,22 @@ class QuestionViewController: UIViewController {
             
             wordCheck = sender.currentTitle!
             AnswerTxt.text = wordCheck
-            sender.isHidden = true
+            //sender.isHidden = true
+            
             controlWords(btn: sender)
             wordNum += 1
+            
+            
             
         }else {
             
             wordCheck = "\(wordCheck) \(sender.currentTitle!)"
             AnswerTxt.text = wordCheck
-            sender.isHidden = true
+            //sender.isHidden = true
+            
             controlWords(btn: sender)
             wordNum += 1
+            
             
         }
         
@@ -261,7 +266,6 @@ class QuestionViewController: UIViewController {
            
             if wordNum == 0 {
                 
-                btn.isHidden = false
                 wordCheck = ""
                 wordNum -= 1
                 
@@ -270,19 +274,17 @@ class QuestionViewController: UIViewController {
                 
             }else {
             
-                btn.isHidden = false
                 wordCheck = wordCheck.replacingOccurrences(of: " \(btn.currentTitle!)", with: "")
                 wordNum -= 1
                 
                 buttonBackgroundChangeByStatus(btn: btn, status: false)
 
-                
             }
             
         }else {
         
             buttonBackgroundChangeByStatus(btn: btn, status: true)
-        
+            
         }
 
     
@@ -292,22 +294,25 @@ class QuestionViewController: UIViewController {
         
         if status
         {
-            UIView.animate(withDuration: 1.0, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 btn.layer.backgroundColor = UIColor.green.cgColor
+            }, completion: {(finished:Bool) in
+                btn.isHidden = true
             })
             
         }else {
         
             UIView.animate(withDuration: 1.0, animations: {
                 btn.layer.backgroundColor = UIColor.red.cgColor
+            }, completion: {(finished:Bool) in
+                btn.isHidden = false
+            })
+            
+            UIView.animate(withDuration: 1.0, animations: {
+                btn.layer.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
             })
             
         }
-        
-        UIView.animate(withDuration: 1.0, animations: {
-            btn.layer.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
-        })
-        
         
     }
     
