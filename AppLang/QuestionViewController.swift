@@ -202,8 +202,6 @@ class QuestionViewController: UIViewController {
             controlWords(btn: sender)
             wordNum += 1
             
-            
-            
         }else {
             
             wordCheck = "\(wordCheck) \(sender.currentTitle!)"
@@ -278,7 +276,7 @@ class QuestionViewController: UIViewController {
                 wordNum -= 1
                 
                 buttonBackgroundChangeByStatus(btn: btn, status: false)
-
+                
             }
             
         }else {
@@ -287,7 +285,6 @@ class QuestionViewController: UIViewController {
             
         }
 
-    
     }
     
     func buttonBackgroundChangeByStatus(btn : UIButton, status : Bool) {
