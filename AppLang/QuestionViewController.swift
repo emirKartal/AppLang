@@ -20,6 +20,7 @@ class QuestionViewController: UIViewController {
     var wordArr = [String]()
     var wordNum = 0
     var wordCheck = String()
+    var controlWordArr = [String]()
     
     @IBOutlet weak var QuestionLbl: UILabel!
     @IBOutlet weak var AnswerTxt: UITextField!
@@ -39,6 +40,7 @@ class QuestionViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         
         QuestionLbl.text = questionArr[questionNum]
         createAnswers()
@@ -67,8 +69,6 @@ class QuestionViewController: UIViewController {
             
         }
 
-        print("test")
-        print("test")
     }
     
     func createButton (word : String, x : Double , y : Double) {
@@ -93,16 +93,19 @@ class QuestionViewController: UIViewController {
             
             wordCheck = sender.currentTitle!
             AnswerTxt.text = wordCheck
-            wordNum += 1
             sender.isHidden = true
+            controlWords(btn: sender)
+            wordNum += 1
             
         }else {
+            
             wordCheck = "\(wordCheck) \(sender.currentTitle!)"
             AnswerTxt.text = wordCheck
-            wordNum += 1
             sender.isHidden = true
+            controlWords(btn: sender)
+            wordNum += 1
+            
         }
-        
         
         // ceviri yanlis ise buton rengi saniyelik kirmizi olacak Ses olacak. O buton text field e yazilmayacak.
         // dogru ise ses ve saniyelik yesil 
@@ -133,6 +136,34 @@ class QuestionViewController: UIViewController {
             }
             
         }
+    
+    }
+    
+    func controlWords(btn : UIButton) {
+        
+        let controlSentence = answerArr[questionNum]
+        controlWordArr = controlSentence.components(separatedBy: " ")
+        
+        if controlWordArr[wordNum] != btn.currentTitle! {
+           
+            if wordNum == 0 {
+                
+                btn.isHidden = false
+                btn.backgroundColor = UIColor.red
+                wordCheck = ""
+                wordNum -= 1
+                
+            }else {
+            
+                btn.isHidden = false
+                btn.backgroundColor = UIColor.red
+                wordCheck = wordCheck.replacingOccurrences(of: " \(btn.currentTitle!)", with: "")
+                wordNum -= 1
+                
+            }
+            
+        }
+
     
     }
     
@@ -169,6 +200,5 @@ extension Array
         }
     }
 }
-
 
 
