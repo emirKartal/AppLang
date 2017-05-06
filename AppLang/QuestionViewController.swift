@@ -59,7 +59,7 @@ class QuestionViewController: UIViewController {
         
         questionNum -= 1
         
-        print(" count:  \(questionNum) totalcount: \(questionArr.count)" )
+        //print(" count:  \(questionNum) totalcount: \(questionArr.count)" )
         
         if questionNum < 0
         {
@@ -94,7 +94,7 @@ class QuestionViewController: UIViewController {
         
         questionNum += 1
         
-        print(" count:  \(questionNum) totalcount: \(questionArr.count)" )
+        //print(" count:  \(questionNum) totalcount: \(questionArr.count)" )
         
         if questionNum == questionArr.count
         {
@@ -246,29 +246,69 @@ class QuestionViewController: UIViewController {
     func controlWords(btn : UIButton) {
         
         let controlSentence = answerArr[questionNum]
+        
+        print(" controlSentence:  \(controlSentence)" )
+        
         controlWordArr = controlSentence.components(separatedBy: " ")
+        
+        print(" controlWordArr:  \(controlWordArr)" )
+        
+        print(" btn.currentTitle:  \(btn.currentTitle!)" )
+        
+        print(" controlWordArr[wordNum]:  \(controlWordArr[wordNum])" )
         
         if controlWordArr[wordNum] != btn.currentTitle! {
            
             if wordNum == 0 {
                 
                 btn.isHidden = false
-                btn.backgroundColor = UIColor.red
                 wordCheck = ""
                 wordNum -= 1
+                
+                buttonBackgroundChangeByStatus(btn: btn, status: false)
+                
                 
             }else {
             
                 btn.isHidden = false
-                btn.backgroundColor = UIColor.red
                 wordCheck = wordCheck.replacingOccurrences(of: " \(btn.currentTitle!)", with: "")
                 wordNum -= 1
                 
+                buttonBackgroundChangeByStatus(btn: btn, status: false)
+
+                
             }
             
+        }else {
+        
+            buttonBackgroundChangeByStatus(btn: btn, status: true)
+        
         }
 
     
+    }
+    
+    func buttonBackgroundChangeByStatus(btn : UIButton, status : Bool) {
+        
+        if status
+        {
+            UIView.animate(withDuration: 1.0, animations: {
+                btn.layer.backgroundColor = UIColor.green.cgColor
+            })
+            
+        }else {
+        
+            UIView.animate(withDuration: 1.0, animations: {
+                btn.layer.backgroundColor = UIColor.red.cgColor
+            })
+            
+        }
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            btn.layer.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
+        })
+        
+        
     }
     
     func getJSON() {
