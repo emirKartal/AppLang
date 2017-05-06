@@ -54,10 +54,99 @@ class QuestionViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func btnBack(_ sender: Any) {
+        
+        questionNum -= 1
+        
+        print(" count:  \(questionNum) totalcount: \(questionArr.count)" )
+        
+        if questionNum < 0
+        {
+            // Display alert message with confirmation.
+            let myAlert = UIAlertController(title:"Alert", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
+            
+            let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
+                self.dismiss(animated: true, completion:nil);
+            }
+            
+            myAlert.addAction(okAction);
+            self.present(myAlert, animated:true, completion:nil);
+            
+            return
+            
+        }
+        
+        wordNum = 0
+        AnswerTxt.text = ""
+        wordCheck = ""
+        
+        QuestionLbl.text = questionArr[questionNum]
+        createAnswers()
+        
+        labelQuestionIndex.text = String(questionNum)
+        labelQuestionCount.text = String(questionArr.count)
+
+        
+    }
+    
+    @IBAction func btnPass(_ sender: Any) {
+        
+        questionNum += 1
+        
+        print(" count:  \(questionNum) totalcount: \(questionArr.count)" )
+        
+        if questionNum == questionArr.count
+        {
+            // Display alert message with confirmation.
+            let myAlert = UIAlertController(title:"Alert", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
+            
+            let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
+                self.dismiss(animated: true, completion:nil);
+            }
+            
+            myAlert.addAction(okAction);
+            self.present(myAlert, animated:true, completion:nil);
+            
+            return
+            
+        }
+        
+        wordNum = 0
+        AnswerTxt.text = ""
+        wordCheck = ""
+        
+        QuestionLbl.text = questionArr[questionNum]
+        createAnswers()
+        
+        labelQuestionIndex.text = String(questionNum)
+        labelQuestionCount.text = String(questionArr.count)
+
+        
+    }
+    
+    
     @IBAction func btnNext(_ sender: Any) {
         
         if answerArr[questionNum] == AnswerTxt.text {
             questionNum += 1
+            
+            if questionNum == questionArr.count
+            {
+                // Display alert message with confirmation.
+                let myAlert = UIAlertController(title:"Alert", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
+                
+                let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
+                    self.dismiss(animated: true, completion:nil);
+                }
+                
+                myAlert.addAction(okAction);
+                self.present(myAlert, animated:true, completion:nil);
+                
+                return
+                
+            }
+            
             wordNum = 0
             AnswerTxt.text = ""
             wordCheck = ""
@@ -67,6 +156,21 @@ class QuestionViewController: UIViewController {
             labelQuestionIndex.text = String(questionNum)
             labelQuestionCount.text = String(questionArr.count)
             
+        }else {
+        
+            // Display alert message with confirmation.
+            let myAlert = UIAlertController(title:"Alert", message:"Yanlis cevap", preferredStyle: UIAlertControllerStyle.alert);
+            
+            let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
+                self.dismiss(animated: true, completion:nil);
+            }
+            
+            myAlert.addAction(okAction);
+            self.present(myAlert, animated:true, completion:nil);
+            
+            return
+
+        
         }
 
     }
