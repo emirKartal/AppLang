@@ -21,6 +21,8 @@
 		30B7F7841EB8F3190096EA4B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B7F7831EB8F3190096EA4B /* HomeViewController.swift */; };
 		30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */; };
 		30BBCC071EA92C0F00D864B1 /* SubCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */; };
+		BF01600D1EBDC17A00CE72D6 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF01600C1EBDC17A00CE72D6 /* correct.wav */; };
+		BF01600F1EBDC50400CE72D6 /* incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF01600E1EBDC50400CE72D6 /* incorrect.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCategoryTableViewController.swift; sourceTree = "<group>"; };
 		3209382EAB26CE56F830CE35 /* Pods_AppLang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppLang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF01600C1EBDC17A00CE72D6 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		BF01600E1EBDC50400CE72D6 /* incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incorrect.wav; sourceTree = "<group>"; };
 		CA462C2453101886B3968056 /* Pods-AppLang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppLang/Pods-AppLang.debug.xcconfig"; sourceTree = "<group>"; };
 		D308F8CBE4F9D93BF90D86E1 /* Pods-AppLang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLang.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppLang/Pods-AppLang.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +81,7 @@
 		3075A3181EA7F2D200988815 /* AppLang */ = {
 			isa = PBXGroup;
 			children = (
+				BF01600B1EBDC16300CE72D6 /* sounds */,
 				3075A3191EA7F2D200988815 /* AppDelegate.swift */,
 				3075A31D1EA7F2D200988815 /* Main.storyboard */,
 				3075A32D1EA7F50000988815 /* UnitTableView.swift */,
@@ -110,6 +115,15 @@
 				D308F8CBE4F9D93BF90D86E1 /* Pods-AppLang.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BF01600B1EBDC16300CE72D6 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BF01600E1EBDC50400CE72D6 /* incorrect.wav */,
+				BF01600C1EBDC17A00CE72D6 /* correct.wav */,
+			);
+			name = sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +189,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3075A3241EA7F2D200988815 /* LaunchScreen.storyboard in Resources */,
+				BF01600F1EBDC50400CE72D6 /* incorrect.wav in Resources */,
+				BF01600D1EBDC17A00CE72D6 /* correct.wav in Resources */,
 				3075A3211EA7F2D200988815 /* Assets.xcassets in Resources */,
 				3075A31F1EA7F2D200988815 /* Main.storyboard in Resources */,
 			);

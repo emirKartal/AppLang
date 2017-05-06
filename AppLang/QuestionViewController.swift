@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import AVFoundation
 
 class QuestionViewController: UIViewController {
 
@@ -21,6 +22,7 @@ class QuestionViewController: UIViewController {
     var wordNum = 0
     var wordCheck = String()
     var controlWordArr = [String]()
+    var bombSoundEffect: AVAudioPlayer!
     
     @IBOutlet weak var QuestionLbl: UILabel!
     @IBOutlet weak var AnswerTxt: UITextField!
@@ -291,6 +293,8 @@ class QuestionViewController: UIViewController {
         
         if status
         {
+            playSound(status: true)
+            
             UIView.animate(withDuration: 0.5, animations: {
                 btn.layer.backgroundColor = UIColor.green.cgColor
             }, completion: {(finished:Bool) in
@@ -299,6 +303,8 @@ class QuestionViewController: UIViewController {
             
         }else {
         
+            playSound(status: false)
+            
             UIView.animate(withDuration: 1.0, animations: {
                 btn.layer.backgroundColor = UIColor.red.cgColor
             }, completion: {(finished:Bool) in
@@ -309,6 +315,31 @@ class QuestionViewController: UIViewController {
                 btn.layer.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
             })
             
+        }
+        
+    }
+    
+    //MARK:- PLAY SOUND
+    func playSound(status : Bool) {
+        
+        let path:String;
+        
+        if status
+        {
+            path = Bundle.main.path(forResource: "correct", ofType:"wav")!
+        }
+        else{
+            path = Bundle.main.path(forResource: "incorrect", ofType:"wav")!
+        }
+        
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOf: url)
+            bombSoundEffect = sound
+            sound.play()
+        } catch {
+            print("error.description")
         }
         
     }
