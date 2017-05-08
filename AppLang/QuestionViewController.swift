@@ -33,14 +33,10 @@ class QuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
-        do {
-            getJSON()
-        } catch {
-            print("error.description")
-        }
         
-        // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.isHidden = true
+        getJSON()
+       
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -58,6 +54,8 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func btnBack(_ sender: Any) {
+        
+        deleteButtons()
         
         questionNum -= 1
         
@@ -94,9 +92,9 @@ class QuestionViewController: UIViewController {
     
     @IBAction func btnPass(_ sender: Any) {
         
-        questionNum += 1
+        deleteButtons()
         
-        //print(" count:  \(questionNum) totalcount: \(questionArr.count)" )
+        questionNum += 1
         
         if Int(labelQuestionIndex.text!) == questionArr.count
         {
@@ -287,6 +285,16 @@ class QuestionViewController: UIViewController {
             
         }
 
+    }
+    
+    func deleteButtons () {
+    
+        let subviews = AnswerView.subviews
+        
+        for subview in subviews {
+            subview.removeFromSuperview()
+        }
+    
     }
     
     func buttonBackgroundChangeByStatus(btn : UIButton, status : Bool) {
