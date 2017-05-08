@@ -34,15 +34,15 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        getJSON()
-        
-        
-      
+        do {
+            getJSON()
+        } catch {
+            print("error.description")
+        }
         
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
-        
         
         QuestionLbl.text = questionArr[questionNum]
         createAnswers()

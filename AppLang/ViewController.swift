@@ -21,5 +21,8 @@ class ViewController: UIViewController {
     }
 
 
+    // servis sonucu bittikten sonra arrayin doldurulmasi.
+    //
+    
 }
 
