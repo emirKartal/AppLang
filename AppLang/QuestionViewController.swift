@@ -47,7 +47,7 @@ class QuestionViewController: UIViewController {
         QuestionLbl.text = questionArr[questionNum]
         createAnswers()
         
-        labelQuestionIndex.text = String(questionNum)
+        labelQuestionIndex.text = String(questionNum + 1)
         labelQuestionCount.text = String(questionArr.count)
         
     }
@@ -98,7 +98,7 @@ class QuestionViewController: UIViewController {
         
         //print(" count:  \(questionNum) totalcount: \(questionArr.count)" )
         
-        if questionNum == questionArr.count
+        if Int(labelQuestionIndex.text!) == questionArr.count
         {
             // Display alert message with confirmation.
             let myAlert = UIAlertController(title:"Alert", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
@@ -121,7 +121,7 @@ class QuestionViewController: UIViewController {
         QuestionLbl.text = questionArr[questionNum]
         createAnswers()
         
-        labelQuestionIndex.text = String(questionNum)
+        labelQuestionIndex.text = String(questionNum + 1)
         labelQuestionCount.text = String(questionArr.count)
 
         
@@ -133,7 +133,7 @@ class QuestionViewController: UIViewController {
         if answerArr[questionNum] == AnswerTxt.text {
             questionNum += 1
             
-            if questionNum == questionArr.count
+            if Int(labelQuestionIndex.text!) == questionArr.count
             {
                 // Display alert message with confirmation.
                 let myAlert = UIAlertController(title:"Alert", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
@@ -155,7 +155,7 @@ class QuestionViewController: UIViewController {
             QuestionLbl.text = questionArr[questionNum]
             createAnswers()
             
-            labelQuestionIndex.text = String(questionNum)
+            labelQuestionIndex.text = String(questionNum + 1)
             labelQuestionCount.text = String(questionArr.count)
             
         }else {
