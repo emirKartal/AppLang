@@ -179,7 +179,15 @@ class QuestionViewController: UIViewController {
     
     func createButton (word : String, x : Double , y : Double) {
         
-        let button = UIButton(frame: CGRect(x: x, y: y, width: 80.0, height: 30.0)) // butonun genisligi cumle uzunlugu ile oran
+        
+        let originalString: String = word
+        let myString: NSString = originalString as NSString
+        let sizeWord: CGSize = myString.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18.0)])
+        
+    
+        let buttonWidth = Double(sizeWord.width) > 80 ? Double(sizeWord.width) + 6 : 80
+        
+        let button = UIButton(frame: CGRect(x: x, y: y, width: buttonWidth, height: 30)) // butonun genisligi cumle uzunlugu ile oran
         
         button.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
         button.layer.cornerRadius = 5

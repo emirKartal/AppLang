@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Hd-GR-UQ7">
-                                <rect key="frame" x="5" y="129" width="365" height="150"/>
+                                <rect key="frame" x="5" y="85" width="365" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XVI-e4-buw">
                                         <rect key="frame" x="5" y="115" width="355" height="30"/>
@@ -86,7 +86,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nw-Jt-0NE">
-                                <rect key="frame" x="5" y="284" width="365" height="263"/>
+                                <rect key="frame" x="5" y="240" width="365" height="307"/>
                                 <color key="backgroundColor" red="1" green="0.97006671609999995" blue="0.88171498599999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sk1-G8-ALL">
@@ -177,7 +177,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OsE-3m-Hp3">
-                                <rect key="frame" x="290" y="74" width="80" height="50"/>
+                                <rect key="frame" x="290" y="30" width="80" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Aa-D2-UL4">
                                         <rect key="frame" x="10" y="0.0" width="66" height="31"/>
@@ -201,7 +201,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jk-RD-OaN">
-                                <rect key="frame" x="5" y="74" width="80" height="50"/>
+                                <rect key="frame" x="5" y="30" width="80" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhs-tL-C72">
                                         <rect key="frame" x="10" y="0.0" width="66" height="31"/>
@@ -225,7 +225,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBF-31-CbI">
-                                <rect key="frame" x="162" y="74" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="30" width="50" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-WZ-y3a">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
