@@ -24,6 +24,11 @@ class QuestionViewController: UIViewController {
     var controlWordArr = [String]()
     var bombSoundEffect: AVAudioPlayer!
     
+    var correctPoint = 0
+    var totalPoint = 0
+    var correctPointCount = 0
+    
+    
     @IBOutlet weak var QuestionLbl: UILabel!
     @IBOutlet weak var AnswerTxt: UITextField!
     @IBOutlet weak var AnswerView: UIView!
@@ -38,13 +43,16 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.isHidden = true
+        
+        loadData()
+        
         getJSON()
        
     }
     override func viewDidAppear(_ animated: Bool) {
         
        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,7 +94,6 @@ class QuestionViewController: UIViewController {
         labelQuestionIndex.text = String(questionNum)
         labelQuestionCount.text = String(questionArr.count)
 
-        
     }
     
     @IBAction func btnPass(_ sender: Any) {
@@ -161,6 +168,11 @@ class QuestionViewController: UIViewController {
             labelQuestionIndex.text = String(questionNum + 1)
             labelQuestionCount.text = String(questionArr.count)
             
+            correctPointCount  = correctPointCount + 1
+            
+            correctPoint = correctPoint + 5
+            totalPointMethod(point: 5)
+            
         }else {
         
             // Display alert message with confirmation.
@@ -173,11 +185,50 @@ class QuestionViewController: UIViewController {
             myAlert.addAction(okAction);
             self.present(myAlert, animated:true, completion:nil);
             
-            return
-
-        
+            correctPointCount  = 0
+            
+            correctPoint = correctPoint - 2
+            totalPointMethod(point: -2)
+            //return
         }
+        
+        if correctPointCount % 5 == 0
+        {
+            // Display alert message with confirmation.
+            let myAlert = UIAlertController(title:"MÜKEMMEL", message:"Peş peşe 5 dogru yaptin.", preferredStyle: UIAlertControllerStyle.alert);
+            
+            let okAction = UIAlertAction(title:"Devam Et", style:UIAlertActionStyle.default){ action in
+                self.dismiss(animated: true, completion:nil);
+            }
+            
+            myAlert.addAction(okAction);
+            self.present(myAlert, animated:true, completion:nil);
+        }
+        
+        loadData()
+        
 
+    }
+    
+    func loadData() {
+    
+        //UserDefaults.standard.set(0, forKey: "totalPoint")
+        labelCorrectPoint.text = String(correctPoint)
+        labelTotalPoint.text = String(UserDefaults.standard.integer(forKey: "totalPoint"))
+        
+    }
+    
+    func totalPointMethod(point: Int) {
+    
+        
+        let total = UserDefaults.standard.integer(forKey: "totalPoint")
+        
+        let superTotal = total + point
+        
+        UserDefaults.standard.set(superTotal, forKey: "totalPoint")
+        
+        //return UserDefaults.standard.integer(forKey: "totalPoint")
+    
     }
     
     func createButton (word : String, x : Double , y : Double) {
@@ -238,7 +289,7 @@ class QuestionViewController: UIViewController {
         let yHeight = AnswerView.frame.height
         
         var x = Double(xWidth / 20)
-        var y = Double(yHeight / 10)
+        var y = Double(yHeight / 20)
         
         let sentence = answerArr[questionNum]
         
@@ -252,7 +303,7 @@ class QuestionViewController: UIViewController {
             x += Double(xWidth / 3)
             if x > Double(xWidth){
                 x = Double(xWidth / 20)
-                y += Double(yHeight / 4)
+                y += Double(yHeight / 8)
             }
             
         }
@@ -263,15 +314,7 @@ class QuestionViewController: UIViewController {
         
         let controlSentence = answerArr[questionNum]
         
-        print(" controlSentence:  \(controlSentence)" )
-        
         controlWordArr = controlSentence.components(separatedBy: " ")
-        
-        print(" controlWordArr:  \(controlWordArr)" )
-        
-        print(" btn.currentTitle:  \(btn.currentTitle!)" )
-        
-        print(" controlWordArr[wordNum]:  \(controlWordArr[wordNum])" )
         
         if controlWordArr[wordNum] != btn.currentTitle! {
            
@@ -335,6 +378,8 @@ class QuestionViewController: UIViewController {
             UIView.animate(withDuration: 1.0, animations: {
                 btn.layer.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
             })
+            
+            correctPointCount  = 0
             
         }
         

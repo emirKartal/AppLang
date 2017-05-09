@@ -199,7 +199,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yde-dw-kNf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yde-dw-kNf">
                                         <rect key="frame" x="22" y="27" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -287,7 +287,7 @@
                         <outlet property="labelQuestionCount" destination="df3-bw-7Vs" id="TZk-Z8-fHw"/>
                         <outlet property="labelQuestionIndex" destination="ZVA-Qy-ych" id="dc5-K8-mff"/>
                         <outlet property="labelTotalPoint" destination="yde-dw-kNf" id="JtV-Hz-bvh"/>
-                        <segue destination="lb4-fc-Ws7" kind="show" identifier="toHomeBack" id="R3b-yA-bdc"/>
+                        <segue destination="lb4-fc-Ws7" kind="show" identifier="toHomeBack" id="Pk3-pw-ajC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sej-TN-cYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -647,6 +647,6 @@
         <image name="home" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="R3b-yA-bdc"/>
+        <segue reference="Pk3-pw-ajC"/>
     </inferredMetricsTieBreakers>
 </document>
