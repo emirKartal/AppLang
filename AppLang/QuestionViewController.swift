@@ -123,7 +123,8 @@ class QuestionViewController: UIViewController {
     
     @IBAction func btnHome(_ sender: Any) {
         
-        performSegue(withIdentifier: "toHomeBack", sender: self)
+        self.navigationController?.navigationBar.isHidden = false
+        performSegue(withIdentifier: "toHomeBack", sender: nil)
         
     }
     
