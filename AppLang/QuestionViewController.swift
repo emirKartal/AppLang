@@ -40,11 +40,7 @@ class QuestionViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        QuestionLbl.text = questionArr[questionNum]
-        createAnswers()
-        
-        labelQuestionIndex.text = String(questionNum + 1)
-        labelQuestionCount.text = String(questionArr.count)
+       self.navigationController?.setNavigationBarHidden(true, animated: false)
         
     }
 
@@ -122,6 +118,12 @@ class QuestionViewController: UIViewController {
         labelQuestionIndex.text = String(questionNum + 1)
         labelQuestionCount.text = String(questionArr.count)
 
+        
+    }
+    
+    @IBAction func btnHome(_ sender: Any) {
+        
+        performSegue(withIdentifier: "toHomeBack", sender: self)
         
     }
     
@@ -365,6 +367,25 @@ class QuestionViewController: UIViewController {
                     self.questionArr.append(question!)
                     self.answerArr.append(answer!)
                 }
+                
+                switch(response.result) {
+                case .success(_):
+                    
+                    self.QuestionLbl.text = self.questionArr[self.questionNum]
+                    self.createAnswers()
+                    
+                    self.labelQuestionIndex.text = String(self.questionNum + 1)
+                    self.labelQuestionCount.text = String(self.questionArr.count)
+                    
+                    break
+                case .failure(_):
+                    //print(response.result.error)
+                    break
+                    
+                }
+                
+                
+                
                 
             }else {
                 print("error")
