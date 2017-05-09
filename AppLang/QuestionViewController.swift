@@ -30,6 +30,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var labelQuestionIndex: UILabel!
     @IBOutlet weak var labelQuestionCount: UILabel!
     
+    @IBOutlet weak var labelCorrectPoint: UILabel!
+    @IBOutlet weak var labelTotalPoint: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +126,6 @@ class QuestionViewController: UIViewController {
     
     @IBAction func btnHome(_ sender: Any) {
         
-        self.navigationController?.navigationBar.isHidden = false
         performSegue(withIdentifier: "toHomeBack", sender: nil)
         
     }
