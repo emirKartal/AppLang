@@ -23,6 +23,7 @@ class QuestionViewController: UIViewController {
     var wordCheck = String()
     var controlWordArr = [String]()
     var bombSoundEffect: AVAudioPlayer!
+    var qSound : AVAudioPlayer!
     
     var correctPoint = 0
     var totalPoint = 0
@@ -209,6 +210,11 @@ class QuestionViewController: UIViewController {
         
 
     }
+    
+    @IBAction func btnSound(_ sender: Any) {
+        
+    }
+    
     
     func loadData() {
     
@@ -440,8 +446,8 @@ class QuestionViewController: UIViewController {
                     
                 }
                 
-                
-                
+              print(self.json)
+              print(url)
                 
             }else {
                 print("error")
