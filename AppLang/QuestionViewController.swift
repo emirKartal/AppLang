@@ -213,6 +213,10 @@ class QuestionViewController: UIViewController {
     
     @IBAction func btnSound(_ sender: Any) {
         
+        //"http://management.giflisozluk.com/Assets/Audios/1-1-20.mp3"
+        let url = URL(string: "http://management.giflisozluk.com/Assets/Audios/1-1-20.mp3")
+        qSound = try! AVAudioPlayer(contentsOf: url!)
+        qSound.play()
     }
     
     
@@ -445,9 +449,6 @@ class QuestionViewController: UIViewController {
                     break
                     
                 }
-                
-              print(self.json)
-              print(url)
                 
             }else {
                 print("error")
