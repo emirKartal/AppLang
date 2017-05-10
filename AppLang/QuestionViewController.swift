@@ -49,6 +49,7 @@ class QuestionViewController: UIViewController {
         loadData()
         
         getJSON()
+        
        
     }
     override func viewDidAppear(_ animated: Bool) {
