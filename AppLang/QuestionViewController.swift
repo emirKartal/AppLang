@@ -23,7 +23,8 @@ class QuestionViewController: UIViewController {
     var wordCheck = String()
     var controlWordArr = [String]()
     var bombSoundEffect: AVAudioPlayer!
-    var qSound : AVAudioPlayer!
+    var qSound : AVPlayer!
+    var soundArr = [String]()
     
     var correctPoint = 0
     var totalPoint = 0
@@ -52,8 +53,9 @@ class QuestionViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-       self.navigationController?.setNavigationBarHidden(true, animated: false)
-
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        playSound()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +96,7 @@ class QuestionViewController: UIViewController {
         
         labelQuestionIndex.text = String(questionNum)
         labelQuestionCount.text = String(questionArr.count)
-
+        playSound()
     }
     
     @IBAction func btnPass(_ sender: Any) {
@@ -128,7 +130,7 @@ class QuestionViewController: UIViewController {
         
         labelQuestionIndex.text = String(questionNum + 1)
         labelQuestionCount.text = String(questionArr.count)
-
+        playSound()
         
     }
     
@@ -205,7 +207,7 @@ class QuestionViewController: UIViewController {
             myAlert.addAction(okAction);
             self.present(myAlert, animated:true, completion:nil);
         }
-        
+        playSound()
         loadData()
         
 
@@ -213,12 +215,18 @@ class QuestionViewController: UIViewController {
     
     @IBAction func btnSound(_ sender: Any) {
         
-        //"http://management.giflisozluk.com/Assets/Audios/1-1-20.mp3"
-        let url = URL(string: "http://management.giflisozluk.com/Assets/Audios/1-1-20.mp3")
-        qSound = try! AVAudioPlayer(contentsOf: url!)
-        qSound.play()
+       playSound()
+        
     }
+    func playSound () {
+        
+        let url = URL(string: "http://management.giflisozluk.com\(soundArr[questionNum])")
+        let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
+        qSound = AVPlayer(playerItem: playerItem)
+        
+        qSound.play()
     
+    }
     
     func loadData() {
     
@@ -430,8 +438,10 @@ class QuestionViewController: UIViewController {
                 for unit in self.json{
                     let question = unit.1["FromTitle"].string
                     let answer = unit.1["ToTitle"].string
+                    let soundPath = unit.1["ToVoice"].string
                     self.questionArr.append(question!)
                     self.answerArr.append(answer!)
+                    self.soundArr.append(soundPath!)
                 }
                 
                 switch(response.result) {
