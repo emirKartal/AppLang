@@ -55,7 +55,7 @@ class QuestionViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        playSound()
+        
         
     }
 
@@ -97,7 +97,7 @@ class QuestionViewController: UIViewController {
         
         labelQuestionIndex.text = String(questionNum)
         labelQuestionCount.text = String(questionArr.count)
-        playSound()
+        
     }
     
     @IBAction func btnPass(_ sender: Any) {
@@ -109,7 +109,7 @@ class QuestionViewController: UIViewController {
         if Int(labelQuestionIndex.text!) == questionArr.count
         {
             // Display alert message with confirmation.
-            let myAlert = UIAlertController(title:"Alert", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
+            let myAlert = UIAlertController(title:"Keep Calm Champion!!", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
             
             let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
                 self.dismiss(animated: true, completion:nil);
@@ -131,7 +131,7 @@ class QuestionViewController: UIViewController {
         
         labelQuestionIndex.text = String(questionNum + 1)
         labelQuestionCount.text = String(questionArr.count)
-        playSound()
+        
         
     }
     
@@ -208,7 +208,7 @@ class QuestionViewController: UIViewController {
             myAlert.addAction(okAction);
             self.present(myAlert, animated:true, completion:nil);
         }
-        playSound()
+        
         loadData()
         
 
@@ -216,17 +216,12 @@ class QuestionViewController: UIViewController {
     
     @IBAction func btnSound(_ sender: Any) {
         
-       playSound()
-        
-    }
-    func playSound () {
-        
         let url = URL(string: "http://management.giflisozluk.com\(soundArr[questionNum])")
         let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
         qSound = AVPlayer(playerItem: playerItem)
         
         qSound.play()
-    
+        
     }
     
     func loadData() {
