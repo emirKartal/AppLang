@@ -76,15 +76,9 @@ class QuestionViewController: UIViewController {
         if questionNum < 0
         {
             // Display alert message with confirmation.
-            let myAlert = UIAlertController(title:"Alert", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
-            
-            let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
-                self.dismiss(animated: true, completion:nil);
-            }
-            
-            myAlert.addAction(okAction);
-            self.present(myAlert, animated:true, completion:nil);
-            
+            SCLAlertView().showNotice("Upppss!!!", subTitle: "Fazla geri gittin...")
+            questionNum += 1  // bunu tekrar artirdim cunku daha sonrasinda next butonuna basinca patliyordu
+            createAnswers()
             return
             
         }
@@ -150,15 +144,8 @@ class QuestionViewController: UIViewController {
             
             if Int(labelQuestionIndex.text!) == questionArr.count
             {
-                // Display alert message with confirmation.
-                let myAlert = UIAlertController(title:"Alert", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
-                
-                let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
-                    self.dismiss(animated: true, completion:nil);
-                }
-                
-                myAlert.addAction(okAction);
-                self.present(myAlert, animated:true, completion:nil);
+               
+                SCLAlertView().showSuccess("You did it :)))", subTitle: "Sorular bitti.")
                 
                 return
                 
@@ -181,14 +168,7 @@ class QuestionViewController: UIViewController {
         }else {
         
             // Display alert message with confirmation.
-            let myAlert = UIAlertController(title:"Alert", message:"Yanlis cevap", preferredStyle: UIAlertControllerStyle.alert);
-            
-            let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
-                self.dismiss(animated: true, completion:nil);
-            }
-            
-            myAlert.addAction(okAction);
-            self.present(myAlert, animated:true, completion:nil);
+            SCLAlertView().showError("Upps!! Something wrong!!", subTitle: "Yanlis cevap")
             
             correctPointCount  = 0
             
@@ -200,14 +180,8 @@ class QuestionViewController: UIViewController {
         if correctPointCount % 5 == 0
         {
             // Display alert message with confirmation.
-            let myAlert = UIAlertController(title:"MÜKEMMEL", message:"Peş peşe 5 dogru yaptin.", preferredStyle: UIAlertControllerStyle.alert);
+            SCLAlertView().showSuccess("Run Forrest Run :))", subTitle: "Pes pese 5 soru dogru...")
             
-            let okAction = UIAlertAction(title:"Devam Et", style:UIAlertActionStyle.default){ action in
-                self.dismiss(animated: true, completion:nil);
-            }
-            
-            myAlert.addAction(okAction);
-            self.present(myAlert, animated:true, completion:nil);
         }
         
         loadData()
