@@ -6,6 +6,7 @@ target 'AppLang' do
   use_frameworks!
 
 	pod 'Alamofire'
-	pod 'SwiftyJSON'  
+	pod 'SwiftyJSON'
+	pod 'SCLAlertView'  
 
 end
