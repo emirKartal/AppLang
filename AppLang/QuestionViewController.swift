@@ -28,7 +28,6 @@ class QuestionViewController: UIViewController {
     var soundArr = [String]()
     
     var correctPoint = 0
-    var totalPoint = 0
     var correctPointCount = 0
     
     
@@ -39,7 +38,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var labelQuestionCount: UILabel!
     
     @IBOutlet weak var labelCorrectPoint: UILabel!
-    @IBOutlet weak var labelTotalPoint: UILabel!
+   
     
     
     override func viewDidLoad() {
@@ -95,40 +94,6 @@ class QuestionViewController: UIViewController {
         
     }
     
-    @IBAction func btnPass(_ sender: Any) {
-        
-        deleteButtons()
-        
-        questionNum += 1
-        
-        if Int(labelQuestionIndex.text!) == questionArr.count
-        {
-            // Display alert message with confirmation.
-            let myAlert = UIAlertController(title:"Keep Calm Champion!!", message:"Sorular bitti", preferredStyle: UIAlertControllerStyle.alert);
-            
-            let okAction = UIAlertAction(title:"Ok", style:UIAlertActionStyle.default){ action in
-                self.dismiss(animated: true, completion:nil);
-            }
-            
-            myAlert.addAction(okAction);
-            self.present(myAlert, animated:true, completion:nil);
-            
-            return
-            
-        }
-        
-        wordNum = 0
-        AnswerTxt.text = ""
-        wordCheck = ""
-        
-        QuestionLbl.text = questionArr[questionNum]
-        createAnswers()
-        
-        labelQuestionIndex.text = String(questionNum + 1)
-        labelQuestionCount.text = String(questionArr.count)
-        
-        
-    }
     
     @IBAction func btnHome(_ sender: Any) {
         
@@ -163,7 +128,7 @@ class QuestionViewController: UIViewController {
             correctPointCount  = correctPointCount + 1
             
             correctPoint = correctPoint + 5
-            totalPointMethod(point: 5)
+            
             
         }else {
         
@@ -173,7 +138,7 @@ class QuestionViewController: UIViewController {
             correctPointCount  = 0
             
             correctPoint = correctPoint - 2
-            totalPointMethod(point: -2)
+            
             //return
         }
         
@@ -203,21 +168,8 @@ class QuestionViewController: UIViewController {
     
         //UserDefaults.standard.set(0, forKey: "totalPoint")
         labelCorrectPoint.text = String(correctPoint)
-        labelTotalPoint.text = String(UserDefaults.standard.integer(forKey: "totalPoint"))
+       
         
-    }
-    
-    func totalPointMethod(point: Int) {
-    
-        
-        let total = UserDefaults.standard.integer(forKey: "totalPoint")
-        
-        let superTotal = total + point
-        
-        UserDefaults.standard.set(superTotal, forKey: "totalPoint")
-        
-        //return UserDefaults.standard.integer(forKey: "totalPoint")
-    
     }
     
     func createButton (word : String, x : Double , y : Double) {
