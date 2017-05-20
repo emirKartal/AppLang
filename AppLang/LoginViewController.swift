@@ -34,7 +34,10 @@ class LoginViewController: UIViewController {
         
     }
     
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+        print("scroll")
+    }
     
     fileprivate func observekeyboardNotifications() {
     
@@ -48,13 +51,23 @@ class LoginViewController: UIViewController {
     
     func keyboardDidHide() {
     
-        print("hide")
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+        
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        
+        }, completion: nil)
+        
     
     }
     
     func keyboardDidShow() {
         
-        print("show")
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: -200, width: self.view.frame.width, height: self.view.frame.height)
+            
+        }, completion: nil)
         
     }
     
