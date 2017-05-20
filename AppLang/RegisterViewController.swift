@@ -12,7 +12,8 @@ class RegisterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        observekeyboardNotifications()
         // Do any additional setup after loading the view.
     }
 
@@ -22,6 +23,36 @@ class RegisterViewController: UIViewController {
     }
     
 
+    fileprivate func observekeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        
+        
+    }
+    
+    func keyboardDidHide() {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+        }, completion: nil)
+        
+    }
+    
+    func keyboardDidShow() {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: -300, width: self.view.frame.width, height: self.view.frame.height)
+            
+        }, completion: nil)
+        
+    }
+    
     /*
     // MARK: - Navigation
 

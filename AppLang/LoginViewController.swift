@@ -25,6 +25,8 @@ class LoginViewController: UIViewController {
         observekeyboardNotifications()
         createGradientLayer()
         
+        self.hideKeyboardWhenTappedAround()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -34,10 +36,6 @@ class LoginViewController: UIViewController {
         
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        view.endEditing(true)
-        print("scroll")
-    }
     
     fileprivate func observekeyboardNotifications() {
     
@@ -49,26 +47,43 @@ class LoginViewController: UIViewController {
     
     }
     
-    func keyboardDidHide() {
     
+    func keyboardDidHide() {
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
         
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         
         }, completion: nil)
-        
     
     }
     
-    func keyboardDidShow() {
+    func keyboardDidShow(notification:NSNotification) {
+        
+        // keyboard height
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height - 20
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             
-            self.view.frame = CGRect(x: 0, y: -200, width: self.view.frame.width, height: self.view.frame.height)
+            self.view.frame = CGRect(x: 0, y: -keyboardHeight, width: self.view.frame.width, height: self.view.frame.height)
             
         }, completion: nil)
         
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func createGradientLayer() {
