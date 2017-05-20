@@ -12,21 +12,39 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     @IBOutlet weak var lblEmail: UITextField!
     @IBOutlet weak var lblPassword: UITextField!
     @IBOutlet weak var labelMessage: UILabel!
     
     var json:JSON = []
+    var gradientLayer: CAGradientLayer!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        
+
+        
+        createGradientLayer()
+        
+        // Do any additional setup after loading the view.
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
+    }
+    
+    func createGradientLayer() {
+        
+        gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor(red:0.76, green:0.22, blue:0.39, alpha:1.0).cgColor, UIColor(red:0.11, green:0.15, blue:0.44, alpha:1.0).cgColor]
+        
+        gradientLayer.zPosition = -1
+        self.view.layer.addSublayer(gradientLayer)
+        self.view.sendSubview(toBack: self.view)
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -42,7 +60,7 @@ class LoginViewController: UIViewController {
 
     func getJSON(userPassword : String, userEmail : String, deviceId: String) {
         
-        let url = "http://giflisozluk.com/api/v1/student"
+        let url = "http://giflisozluk.com/api/v1/student/login"
         
         let params: Parameters = [
             "Password": userPassword,
