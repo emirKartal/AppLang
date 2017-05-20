@@ -22,9 +22,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-
-        
+        observekeyboardNotifications()
         createGradientLayer()
         
         // Do any additional setup after loading the view.
@@ -33,6 +31,30 @@ class LoginViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+    }
+    
+    
+    
+    fileprivate func observekeyboardNotifications() {
+    
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+        
+    
+    }
+    
+    func keyboardDidHide() {
+    
+        print("hide")
+    
+    }
+    
+    func keyboardDidShow() {
+        
+        print("show")
         
     }
     
