@@ -70,6 +70,7 @@ class RegisterViewController: UIViewController {
         performSegue(withIdentifier: "registerToLoginSegue", sender: self)
         
     }
+    
     /*
     // MARK: - Navigation
 
