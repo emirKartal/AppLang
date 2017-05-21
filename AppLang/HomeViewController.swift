@@ -29,6 +29,11 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func buttonStartGame(_ sender: Any) {
+        
+         self.performSegue(withIdentifier: "menuViewSegue", sender: self)
+        
+    }
 
     /*
     // MARK: - Navigation

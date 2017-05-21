@@ -10,10 +10,12 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    var gradientLayer: CAGradientLayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         observekeyboardNotifications()
+        createGradientLayer()
         // Do any additional setup after loading the view.
     }
 
@@ -22,6 +24,16 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func createGradientLayer() {
+        
+        gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor(red:0.76, green:0.22, blue:0.39, alpha:1.0).cgColor, UIColor(red:0.11, green:0.15, blue:0.44, alpha:1.0).cgColor]
+        
+        gradientLayer.zPosition = -1
+        self.view.layer.addSublayer(gradientLayer)
+        self.view.sendSubview(toBack: self.view)
+    }
 
     fileprivate func observekeyboardNotifications() {
         
@@ -53,6 +65,11 @@ class RegisterViewController: UIViewController {
         
     }
     
+    @IBAction func buttonLogin(_ sender: Any) {
+        
+        performSegue(withIdentifier: "registerToLoginSegue", sender: self)
+        
+    }
     /*
     // MARK: - Navigation
 

@@ -1,8 +1,8 @@
 //
-//  LoginViewController.swift
+//  RememberViewController.swift
 //  AppLang
 //
-//  Created by Emir Kartal on 24.04.2017.
+//  Created by cagdas on 21/05/2017.
 //  Copyright © 2017 Emir Kartal. All rights reserved.
 //
 
@@ -11,18 +11,16 @@ import Alamofire
 import SwiftyJSON
 import SCLAlertView
 
-class LoginViewController: UIViewController {
+class RememberViewController: UIViewController {
 
-    @IBOutlet weak var lblEmail: UITextField!
-    @IBOutlet weak var lblPassword: UITextField!
-    @IBOutlet weak var labelMessage: UILabel!
-    
     var json:JSON = []
     var gradientLayer: CAGradientLayer!
     
+    @IBOutlet weak var textEmail: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         observekeyboardNotifications()
         createGradientLayer()
         
@@ -37,23 +35,42 @@ class LoginViewController: UIViewController {
         
     }
     
-    fileprivate func observekeyboardNotifications() {
+    @IBAction func buttonRemember(_ sender: Any) {
+        
+        let email = textEmail.text!
+        let deviceId =  UIDevice.current.identifierForVendor!.uuidString
+        print(deviceId)
+        getJSON(userEmail: email, deviceId:deviceId)
+        
+    }
     
+    @IBAction func buttonRegister(_ sender: Any) {
+        
+        performSegue(withIdentifier: "rememberToRegisterSegue", sender: self)
+    }
+    
+    @IBAction func buttonLogin(_ sender: Any) {
+        
+        performSegue(withIdentifier: "rememberToLoginSegue", sender: self)
+    }
+    
+    fileprivate func observekeyboardNotifications() {
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-    
+        
     }
     
     func keyboardDidHide() {
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-        
+            
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        
+            
         }, completion: nil)
-    
+        
     }
     
     func keyboardDidShow(notification:NSNotification) {
@@ -74,7 +91,7 @@ class LoginViewController: UIViewController {
     
     func hideKeyboardWhenTappedAround() {
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RememberViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
@@ -95,23 +112,12 @@ class LoginViewController: UIViewController {
         self.view.sendSubview(toBack: self.view)
     }
     
-    @IBAction func loginButton(_ sender: Any) {
-        
-        let email = lblEmail.text!
-        let password = lblPassword.text!
-        let deviceId =  UIDevice.current.identifierForVendor!.uuidString
-        print(deviceId)
-        getJSON(userPassword: password, userEmail: email, deviceId:deviceId)
-        
-        
-    }
 
-    func getJSON(userPassword : String, userEmail : String, deviceId: String) {
+    func getJSON(userEmail : String, deviceId: String) {
         
-        let url = "http://giflisozluk.com/api/v1/student/login"
+        let url = "http://giflisozluk.com/api/v1/student/remember"
         
         let params: Parameters = [
-            "Password": userPassword,
             "email": userEmail
         ]
         
@@ -127,10 +133,7 @@ class LoginViewController: UIViewController {
                     
                     let json = JSON(data)
                     
-                    print(json)
-                    print(json["user"])
-                    
-                    let user = json["user"]
+                    //let user = json["user"]
                     let status = json["status"].intValue
                     let message = json["message"].stringValue
                     
@@ -138,20 +141,13 @@ class LoginViewController: UIViewController {
                     
                     if status == 200
                     {
-                        //store data
-                        UserDefaults.standard.set(user["FullName"].stringValue, forKey: "userEmail")
-                        UserDefaults.standard.set(user["token"].stringValue, forKey: "userPassword")
-                        UserDefaults.standard.set(true, forKey: "isUserLoggenIn") //Bool
-                        
-                        self.performSegue(withIdentifier: "homeViewSegue", sender: self)
-                        
+                     
+                        SCLAlertView().showSuccess("Yep", subTitle: message)
                         
                     }else if status == 400
                     {
                         
                         SCLAlertView().showError("Upps!!", subTitle: message)
-                        
-                        //self.labelMessage.text = message
                         
                     }
                     
@@ -166,16 +162,7 @@ class LoginViewController: UIViewController {
             
         }
     }
-    
-    @IBAction func buttonLoginRemember(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "loginToRememberSegue", sender: self)
-        
-    }
-    
-    @IBAction func buttonRegister(_ sender: Any) {
-        self.performSegue(withIdentifier: "loginToRegister", sender: self)
-    }
+
     
     /*
     // MARK: - Navigation
