@@ -141,6 +141,7 @@ class LoginViewController: UIViewController {
                         //store data
                         UserDefaults.standard.set(user["FullName"].stringValue, forKey: "userEmail")
                         UserDefaults.standard.set(user["token"].stringValue, forKey: "userPassword")
+                        UserDefaults.standard.set(user["Image"].stringValue, forKey: "userImage")
                         UserDefaults.standard.set(true, forKey: "isUserLoggenIn") //Bool
                         
                         self.performSegue(withIdentifier: "homeViewSegue", sender: self)
@@ -174,7 +175,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func buttonRegister(_ sender: Any) {
+        
         self.performSegue(withIdentifier: "loginToRegister", sender: self)
+        
     }
     
     /*

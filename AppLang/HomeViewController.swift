@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +22,10 @@ class HomeViewController: UIViewController {
         // popover koyulaak dil secenekleri,
         // from id, to id, userdefault atilacak. 
         // TODO:
+        
+        let url = UserDefaults.standard.string(forKey: "userImage")!
+        print(String(describing: url))
+        get_image("http://management.giflisozluk.com\(String(describing: url))", _imageView: profileImageView)
         
         
     }
@@ -35,6 +41,29 @@ class HomeViewController: UIViewController {
         
     }
 
+    func get_image(_ url_str: String, _imageView: UIImageView){
+    
+        let url:URL = URL(string: url_str)!
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { (data, response, error ) in
+            
+            if data != nil
+            {
+                let image = UIImage(data: data!)
+                if (image != nil)
+                {
+                    DispatchQueue.main.async(execute: { 
+                        _imageView.image = image
+                    })
+                }
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
+    
     /*
     // MARK: - Navigation
 

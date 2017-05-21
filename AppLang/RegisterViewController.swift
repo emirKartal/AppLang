@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var gradientLayer: CAGradientLayer!
+    
+    @IBOutlet weak var myImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         observekeyboardNotifications()
         createGradientLayer()
+        
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
 
@@ -55,14 +62,32 @@ class RegisterViewController: UIViewController {
         
     }
     
-    func keyboardDidShow() {
+    func keyboardDidShow(notification:NSNotification) {
+        
+        // keyboard height
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height - 20
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             
-            self.view.frame = CGRect(x: 0, y: -300, width: self.view.frame.width, height: self.view.frame.height)
+            self.view.frame = CGRect(x: 0, y: -keyboardHeight, width: self.view.frame.width, height: self.view.frame.height)
             
         }, completion: nil)
         
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func buttonLogin(_ sender: Any) {
@@ -71,14 +96,47 @@ class RegisterViewController: UIViewController {
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func buttonSelectPhotoTapped(_ sender: Any) {
+        
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        self.present(myPickerController, animated: true, completion: nil)
+        
     }
-    */
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        myImageView.image = image
+        
+        let documentDirectory: NSString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
+        
+        let imageName = "temp"
+        let imagePath = documentDirectory.appendingPathComponent(imageName)
+        
+        if let data = UIImageJPEGRepresentation(image!, 80) {
+            try? data.write(to: URL(fileURLWithPath: imagePath), options: [.atomic])
+        }
+        
+        let localPath = imagePath
+
+        print(localPath)
+        
+        picker.dismiss(animated: true, completion: nil)
+    
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func register() {
+        
+        
+        
+    }
 
 }
