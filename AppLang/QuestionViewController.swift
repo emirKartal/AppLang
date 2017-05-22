@@ -28,7 +28,7 @@ class QuestionViewController: UIViewController {
     var soundArr = [String]()
     
     var correctPoint = 0
-    var correctPointCount = 0
+    var correctPointCount = 1
     
     
     @IBOutlet weak var QuestionLbl: UILabel!
@@ -105,6 +105,7 @@ class QuestionViewController: UIViewController {
     @IBAction func btnNext(_ sender: Any) {
         
         if answerArr[questionNum] == AnswerTxt.text {
+            deleteButtons()
             questionNum += 1
             
             if Int(labelQuestionIndex.text!) == questionArr.count
@@ -132,13 +133,22 @@ class QuestionViewController: UIViewController {
             
         }else {
         
-            // Display alert message with confirmation.
-            SCLAlertView().showError("Upps!! Something wrong!!", subTitle: "Yanlis cevap")
+            SCLAlertView().showError("Cevabin :\(AnswerTxt.text!)", subTitle: "Dogrusu : \(answerArr[questionNum])")
+            deleteButtons()
             
-            correctPointCount  = 0
+            questionNum += 1
+            wordNum = 0
+            AnswerTxt.text = ""
+            wordCheck = ""
+            QuestionLbl.text = questionArr[questionNum]
+            createAnswers()
+            
+            labelQuestionIndex.text = String(questionNum + 1)
+            labelQuestionCount.text = String(questionArr.count)
+            
+            //correctPointCount  = 1
             
             correctPoint = correctPoint - 2
-            
             //return
         }
         
@@ -204,7 +214,8 @@ class QuestionViewController: UIViewController {
             AnswerTxt.text = wordCheck
             //sender.isHidden = true
             
-            controlWords(btn: sender)
+            //controlWords(btn: sender)
+            buttonBackgroundChangeByStatus(btn: sender, status: true)
             wordNum += 1
             
         }else {
@@ -213,7 +224,8 @@ class QuestionViewController: UIViewController {
             AnswerTxt.text = wordCheck
             //sender.isHidden = true
             
-            controlWords(btn: sender)
+            //controlWords(btn: sender)
+            buttonBackgroundChangeByStatus(btn: sender, status: true)
             wordNum += 1
             
             
@@ -251,7 +263,7 @@ class QuestionViewController: UIViewController {
     
     }
     
-    func controlWords(btn : UIButton) {
+    /*func controlWords(btn : UIButton) {
         
         let controlSentence = answerArr[questionNum]
         
@@ -282,7 +294,7 @@ class QuestionViewController: UIViewController {
             
         }
 
-    }
+    }*/
     
     func deleteButtons () {
     
@@ -295,7 +307,7 @@ class QuestionViewController: UIViewController {
     }
     
     func buttonBackgroundChangeByStatus(btn : UIButton, status : Bool) {
-        
+        /*
         if status
         {
             playSound(status: true)
@@ -322,7 +334,15 @@ class QuestionViewController: UIViewController {
             
             correctPointCount  = 0
             
-        }
+        }*/
+        playSound(status: true)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            //btn.layer.backgroundColor = UIColor.green.cgColor
+        }, completion: {(finished:Bool) in
+            btn.isHidden = true
+        })
+
         
     }
     
