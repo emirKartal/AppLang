@@ -13,6 +13,7 @@ import SwiftyJSON
 class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var gradientLayer: CAGradientLayer!
+    var localPath: String!
     
     @IBOutlet weak var myImageView: UIImageView!
     
@@ -121,7 +122,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             try? data.write(to: URL(fileURLWithPath: imagePath), options: [.atomic])
         }
         
-        let localPath = imagePath
+        localPath = imagePath
 
         print(localPath)
         
@@ -135,8 +136,36 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func register() {
         
+        let parameters = [
+            "parameter1": "bodrum",
+            "parameter2": "yalikavak"]
         
+        let url = "http://localhost:8888/upload_image.php"
         
+    let urlImage = URL(fileURLWithPath: localPath)
+        
+      Alamofire.upload(multipartFormData: { multipartFormData in
+        
+        multipartFormData.append(urlImage, withName: "image")
+        
+        for (key, val) in parameters {
+            multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
+        }
+        
+      }, to: url, encodingCompletion: { encodingResult in
+                    switch encodingResult {
+                     case .success(let upload, _, _):
+                        upload.responseJSON { response in
+                            if let jsonResponse = response.result.value as? [String: Any] {
+                                print(jsonResponse)
+                            }
+                        }
+                     case .failure(let encodingError):
+                         print(encodingError)
+                     }
+             }
+             )
     }
+    
 
 }
