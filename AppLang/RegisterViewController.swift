@@ -9,11 +9,18 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import SCLAlertView
 
 class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var gradientLayer: CAGradientLayer!
     var localPath: String!
+    
+    @IBOutlet weak var labelFirstName: UITextField!
+    @IBOutlet weak var labelLastName: UITextField!
+    @IBOutlet weak var labelEmail: UITextField!
+    @IBOutlet weak var labelPassword: UITextField!
+    @IBOutlet weak var labelGsm: UITextField!
     
     @IBOutlet weak var myImageView: UIImageView!
     
@@ -93,9 +100,10 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func buttonLogin(_ sender: Any) {
         
-        performSegue(withIdentifier: "registerToLoginSegue", sender: self)
+    performSegue(withIdentifier: "registerToLoginSegue", sender: self)
         
     }
+
     
     @IBAction func buttonSelectPhotoTapped(_ sender: Any) {
         
@@ -115,7 +123,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         
         let documentDirectory: NSString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
         
-        let imageName = "temp"
+        let imageName = "temp.jpg"
         let imagePath = documentDirectory.appendingPathComponent(imageName)
         
         if let data = UIImageJPEGRepresentation(image!, 80) {
@@ -134,37 +142,102 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
          picker.dismiss(animated: true, completion: nil)
     }
     
-    func register() {
+    
+    @IBAction func buttonRegister(_ sender: Any) {
+        
+        let email = labelEmail.text!
+        let password = labelPassword.text!
+        let firstname = labelFirstName.text!
+        let lastname = labelLastName.text!
+        let gsm = labelGsm.text!
+        
+        register(local: localPath, email: email, password: password, firstname: firstname, lastname: lastname, gsm: gsm)
+        
+    }
+    
+    func register(local: String,email: String, password: String, firstname: String, lastname:String, gsm: String ) {
         
         let parameters = [
-            "parameter1": "bodrum",
-            "parameter2": "yalikavak"]
+            "FirstName": firstname,
+            "LastName": lastname,
+            "Email": email,
+            "Gsm": gsm,
+            "Password": password,
+            "Gender": "0",
+            
+            ]
         
-        let url = "http://localhost:8888/upload_image.php"
+        let headers1 = [
+            "auth-token": "1DD67360-BAE0-44F1-83F0-EF5520B12234"
+            ]
         
-    let urlImage = URL(fileURLWithPath: localPath)
+        let url = "http://giflisozluk.com/api/v1/student"
         
-      Alamofire.upload(multipartFormData: { multipartFormData in
+        let urlImage = URL(fileURLWithPath: localPath)
         
-        multipartFormData.append(urlImage, withName: "image")
+        print("urlImage \(urlImage)")
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            
+            multipartFormData.append(urlImage, withName: "image", fileName: "temp.jpg", mimeType: "image/jpeg")
         
         for (key, val) in parameters {
             multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
         }
-        
-      }, to: url, encodingCompletion: { encodingResult in
-                    switch encodingResult {
-                     case .success(let upload, _, _):
+         print("multipart \(multipartFormData)")
+            
+        }, to: url, method: HTTPMethod.put, headers: headers1,
+           
+           encodingCompletion: { encodingResult in
+            
+            switch encodingResult {
+                        
+                    case .success(let upload, _, _):
                         upload.responseJSON { response in
                             if let jsonResponse = response.result.value as? [String: Any] {
-                                print(jsonResponse)
+                            
+                                let json = JSON(jsonResponse)
+                                
+                                print(json)
+                                print(json["user"])
+                                
+                                let user = json["user"]
+                                let status = json["status"].intValue
+                                let message = json["message"].stringValue
+
+                                
+                                if status == 200
+                                {
+                                    //store data
+                                    UserDefaults.standard.set(user["FullName"].stringValue, forKey: "userEmail")
+                                    UserDefaults.standard.set(user["token"].stringValue, forKey: "userPassword")
+                                    UserDefaults.standard.set(user["Image"].stringValue, forKey: "userImage")
+                                    UserDefaults.standard.set(true, forKey: "isUserLoggenIn") //Bool
+                                    
+                                    SCLAlertView().showSuccess("Success!!", subTitle: message)
+                                    
+                                    //self.performSegue(withIdentifier: "homeViewSegue", sender: self)
+                                    
+                                    // resim secildigi anda cihaz id ile ilgili varsa update yok ise yeni uye kaydi olusturmali.
+                                    
+                                    
+                                }else if status == 400
+                                {
+                                    
+                                    SCLAlertView().showError("Upps!!", subTitle: message)
+                                    
+                                    //self.labelMessage.text = message
+                                    
+                                }
+
+                            
                             }
-                        }
-                     case .failure(let encodingError):
+                    }
+                    case .failure(let encodingError):
                          print(encodingError)
-                     }
-             }
-             )
+            }
+            
+        })
     }
     
 

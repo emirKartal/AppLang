@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ly-7M-kvs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ly-7M-kvs">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -692,7 +692,6 @@
                                         </state>
                                         <connections>
                                             <action selector="buttonLogin:" destination="j69-Wg-TJm" eventType="touchUpInside" id="oLt-et-FN3"/>
-                                            <segue destination="4Ly-7M-kvs" kind="show" identifier="registerToLoginSegue" id="OBe-eO-OT7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REr-tg-Dwp">
@@ -711,6 +710,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="buttonRegister:" destination="j69-Wg-TJm" eventType="touchUpInside" id="28W-Ye-o8E"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" alpha="0.10000000149011612" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gsm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r5M-lc-yqv" userLabel="lbl Gsm">
                                         <rect key="frame" x="10" y="180" width="394" height="30"/>
@@ -773,6 +775,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Register" id="bIS-j3-2i9"/>
                     <connections>
+                        <outlet property="labelEmail" destination="W3Q-aR-l4W" id="oZ7-ae-UrD"/>
+                        <outlet property="labelFirstName" destination="Yjg-rs-m3A" id="NlC-k8-Nra"/>
+                        <outlet property="labelGsm" destination="r5M-lc-yqv" id="hc7-XV-rOS"/>
+                        <outlet property="labelLastName" destination="PzV-bD-DAZ" id="8Vn-P6-LFe"/>
+                        <outlet property="labelPassword" destination="yq4-pw-BQq" id="RbB-g0-Zkh"/>
                         <outlet property="myImageView" destination="mFq-fo-P9U" id="sPS-vM-vqs"/>
                     </connections>
                 </viewController>
@@ -1074,8 +1081,7 @@
         <image name="sound" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="n1n-BZ-XA4"/>
-        <segue reference="OBe-eO-OT7"/>
         <segue reference="v2K-i4-aj7"/>
+        <segue reference="n1n-BZ-XA4"/>
     </inferredMetricsTieBreakers>
 </document>
