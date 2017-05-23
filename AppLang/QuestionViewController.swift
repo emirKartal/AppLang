@@ -27,7 +27,7 @@ class QuestionViewController: UIViewController {
     var qSound : AVPlayer!
     var soundArr = [String]()
     
-    var correctPoint = 0
+    var score = 0
     var correctPointCount = 1
     
     
@@ -108,6 +108,8 @@ class QuestionViewController: UIViewController {
             deleteButtons()
             questionNum += 1
             
+            score += 5
+            
             if Int(labelQuestionIndex.text!) == questionArr.count
             {
                
@@ -128,12 +130,9 @@ class QuestionViewController: UIViewController {
             
             correctPointCount  = correctPointCount + 1
             
-            correctPoint = correctPoint + 5
-            
-            
         }else {
         
-            SCLAlertView().showError("Cevabin :\(AnswerTxt.text!)", subTitle: "Dogrusu : \(answerArr[questionNum])")
+            SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
             deleteButtons()
             
             questionNum += 1
@@ -146,9 +145,6 @@ class QuestionViewController: UIViewController {
             labelQuestionIndex.text = String(questionNum + 1)
             labelQuestionCount.text = String(questionArr.count)
             
-            //correctPointCount  = 1
-            
-            correctPoint = correctPoint - 2
             //return
         }
         
@@ -177,7 +173,7 @@ class QuestionViewController: UIViewController {
     func loadData() {
     
         //UserDefaults.standard.set(0, forKey: "totalPoint")
-        labelCorrectPoint.text = String(correctPoint)
+        labelCorrectPoint.text = String(score)
        
         
     }
@@ -230,9 +226,6 @@ class QuestionViewController: UIViewController {
             
             
         }
-        
-        // ceviri yanlis ise buton rengi saniyelik kirmizi olacak Ses olacak. O buton text field e yazilmayacak.
-        // dogru ise ses ve saniyelik yesil 
         
     }
     
