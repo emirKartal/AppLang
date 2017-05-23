@@ -23,6 +23,11 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let deviceId = UserDefaults.standard.string(forKey: "deviceId")!
+        print(deviceId)
+        
+        getUserByToken(token: deviceId)
+        
         observekeyboardNotifications()
         createGradientLayer()
         
@@ -167,6 +172,69 @@ class LoginViewController: UIViewController {
             
         }
     }
+    
+    func getUserByToken(token : String) {
+        
+        let url = "http://giflisozluk.com/api/v1/student"
+        
+        let params: Parameters = [
+            "password": "",
+            "email": ""
+        ]
+        
+        let headers: HTTPHeaders = [
+            "auth-token": token
+        ]
+        
+        Alamofire.request(url ,method: .get ,parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value{
+                    
+                    let json = JSON(data)
+                    
+                    print(json)
+                    print(json["user"])
+                    
+                    let user = json["user"]
+                    let status = json["status"].intValue
+                    let message = json["message"].stringValue
+                    
+                    UserDefaults.standard.set(status, forKey: "status")
+                    
+                    if status == 200
+                    {
+                        //store data
+                        UserDefaults.standard.set(user["FullName"].stringValue, forKey: "userEmail")
+                        UserDefaults.standard.set(user["token"].stringValue, forKey: "userPassword")
+                        UserDefaults.standard.set(user["Image"].stringValue, forKey: "userImage")
+                        UserDefaults.standard.set(true, forKey: "isUserLoggenIn") //Bool
+                        
+                        self.performSegue(withIdentifier: "homeViewSegue", sender: self)
+                        
+                        
+                    }else if status == 400
+                    {
+                        
+                        SCLAlertView().showError("Upps!!", subTitle: message)
+                        
+                        //self.labelMessage.text = message
+                        
+                    }
+                    
+                }
+                break
+                
+            case .failure(_):
+                print(response.result.error ?? "selam")
+                break
+                
+            }
+            
+        }
+    }
+
     
     @IBAction func buttonLoginRemember(_ sender: Any) {
         
