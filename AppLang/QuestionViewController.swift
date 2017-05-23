@@ -103,22 +103,32 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func btnNext(_ sender: Any) {
-        
-        if answerArr[questionNum] == AnswerTxt.text {
-            deleteButtons()
-            questionNum += 1
+        print(questionNum)
+        if Int(labelQuestionIndex.text!) == questionArr.count{
             
-            score += 5
+            let alertView = SCLAlertView()
+            alertView.addButton("Results", action: {
+                
+                print("bastin")
+                
+            })
             
-            if Int(labelQuestionIndex.text!) == questionArr.count
-            {
-               
-                SCLAlertView().showSuccess("You did it :)))", subTitle: "Sorular bitti.")
-                
-                return
-                
+            alertView.showSuccess("Bravooo!!!", subTitle: "You did it :))")
+            
+            if answerArr[questionNum] != AnswerTxt.text{
+                SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
             }
             
+            return
+            
+        }
+        
+        
+        if answerArr[questionNum] == AnswerTxt.text {
+            
+            deleteButtons()
+            //questionNum += 1
+            score += 5
             wordNum = 0
             AnswerTxt.text = ""
             wordCheck = ""
@@ -131,32 +141,31 @@ class QuestionViewController: UIViewController {
             correctPointCount  = correctPointCount + 1
             
         }else {
-        
+            
             SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
+            
             deleteButtons()
             
+            labelQuestionIndex.text = String(questionNum + 1)
+            labelQuestionCount.text = String(questionArr.count)
+            print(questionNum)
             questionNum += 1
+            print(questionNum)
             wordNum = 0
             AnswerTxt.text = ""
             wordCheck = ""
             QuestionLbl.text = questionArr[questionNum]
             createAnswers()
             
-            labelQuestionIndex.text = String(questionNum + 1)
-            labelQuestionCount.text = String(questionArr.count)
-            
-            //return
         }
         
-        if correctPointCount % 5 == 0
-        {
-            // Display alert message with confirmation.
+        if correctPointCount % 5 == 0 {
+            
             SCLAlertView().showSuccess("Run Forrest Run :))", subTitle: "Pes pese 5 soru dogru...")
             
         }
         
         loadData()
-        
 
     }
     
