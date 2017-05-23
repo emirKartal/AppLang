@@ -28,7 +28,7 @@ class QuestionViewController: UIViewController {
     var soundArr = [String]()
     
     var score = 0
-    var correctPointCount = 1
+    var correctPointCount = 0
     
     
     @IBOutlet weak var QuestionLbl: UILabel!
@@ -103,8 +103,8 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func btnNext(_ sender: Any) {
-        print(questionNum)
-        if Int(labelQuestionIndex.text!) == questionArr.count{
+        
+        if questionNum + 1 == questionArr.count{
             
             let alertView = SCLAlertView()
             alertView.addButton("Results", action: {
@@ -127,35 +127,14 @@ class QuestionViewController: UIViewController {
         if answerArr[questionNum] == AnswerTxt.text {
             
             deleteButtons()
-            //questionNum += 1
-            score += 5
-            wordNum = 0
-            AnswerTxt.text = ""
-            wordCheck = ""
-            QuestionLbl.text = questionArr[questionNum]
-            createAnswers()
-            
-            labelQuestionIndex.text = String(questionNum + 1)
-            labelQuestionCount.text = String(questionArr.count)
             
             correctPointCount  = correctPointCount + 1
             
         }else {
             
             SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
-            
+            correctPointCount = 1 // buna bakicaz
             deleteButtons()
-            
-            labelQuestionIndex.text = String(questionNum + 1)
-            labelQuestionCount.text = String(questionArr.count)
-            print(questionNum)
-            questionNum += 1
-            print(questionNum)
-            wordNum = 0
-            AnswerTxt.text = ""
-            wordCheck = ""
-            QuestionLbl.text = questionArr[questionNum]
-            createAnswers()
             
         }
         
@@ -164,6 +143,17 @@ class QuestionViewController: UIViewController {
             SCLAlertView().showSuccess("Run Forrest Run :))", subTitle: "Pes pese 5 soru dogru...")
             
         }
+        
+        labelQuestionIndex.text = String(questionNum + 1)
+        labelQuestionCount.text = String(questionArr.count)
+        
+        questionNum += 1
+        
+        wordNum = 0
+        AnswerTxt.text = ""
+        wordCheck = ""
+        QuestionLbl.text = questionArr[questionNum]
+        createAnswers()
         
         loadData()
 
