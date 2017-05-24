@@ -89,17 +89,20 @@ class QuestionViewController: UIViewController {
         QuestionLbl.text = questionArr[questionNum]
         createAnswers()
         
-        labelQuestionIndex.text = String(questionNum)
-        labelQuestionCount.text = String(questionArr.count)
+        labelQuestionIndex.text = String(questionNum + 1)
         
     }
     
     @IBAction func btnReset(_ sender: UIButton) {
         
+        deleteButtons()
+        wordNum = 0
+        AnswerTxt.text = ""
+        wordCheck = ""
+        createAnswers()
+        
     }
-    
-    
-    
+
     @IBAction func btnHome(_ sender: Any) {
         
         performSegue(withIdentifier: "toHomeBack", sender: nil)
@@ -120,9 +123,9 @@ class QuestionViewController: UIViewController {
             
             alertView.showSuccess("Bravooo!!!", subTitle: "You did it :))")
             
-            if answerArr[questionNum] != AnswerTxt.text{
+            /*if answerArr[questionNum] != AnswerTxt.text{
                 SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
-            }
+            }*/
             
             return
             
@@ -132,12 +135,11 @@ class QuestionViewController: UIViewController {
         if answerArr[questionNum] == AnswerTxt.text {
             
             deleteButtons()
-            
             correctPointCount  = correctPointCount + 1
             
         }else {
-            
-            SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
+           
+            //SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
             correctPointCount = 1 // buna bakicaz
             deleteButtons()
             
@@ -149,10 +151,8 @@ class QuestionViewController: UIViewController {
             
         }
         
-        labelQuestionIndex.text = String(questionNum + 1)
-        labelQuestionCount.text = String(questionArr.count)
-        
         questionNum += 1
+        labelQuestionIndex.text = String(questionNum + 1)
         
         wordNum = 0
         AnswerTxt.text = ""
@@ -335,7 +335,7 @@ class QuestionViewController: UIViewController {
         playSound(status: true)
         
         UIView.animate(withDuration: 0.5, animations: {
-            //btn.layer.backgroundColor = UIColor.green.cgColor
+            btn.layer.backgroundColor = UIColor.green.cgColor
         }, completion: {(finished:Bool) in
             btn.isHidden = true
         })
