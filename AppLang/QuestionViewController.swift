@@ -94,6 +94,11 @@ class QuestionViewController: UIViewController {
         
     }
     
+    @IBAction func btnReset(_ sender: UIButton) {
+        
+    }
+    
+    
     
     @IBAction func btnHome(_ sender: Any) {
         
@@ -109,7 +114,7 @@ class QuestionViewController: UIViewController {
             let alertView = SCLAlertView()
             alertView.addButton("Results", action: {
                 
-                print("bastin")
+                self.performSegue(withIdentifier: "toResultView", sender: nil)
                 
             })
             
