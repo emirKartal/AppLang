@@ -15,6 +15,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
 
     var gradientLayer: CAGradientLayer!
     var localPath: String!
+    var deviceId: String!
     
     @IBOutlet weak var labelFirstName: UITextField!
     @IBOutlet weak var labelLastName: UITextField!
@@ -26,6 +27,9 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        deviceId = UserDefaults.standard.string(forKey: "deviceId")!
+        print(deviceId)
         
         observekeyboardNotifications()
         createGradientLayer()
@@ -134,6 +138,8 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
 
         print(localPath)
         
+        uploadImage(local: localPath, token: deviceId)
+        
         picker.dismiss(animated: true, completion: nil)
     
     }
@@ -239,6 +245,81 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             
         })
     }
+
+    func uploadImage(local: String, token: String ) {
+        
+        let parameters = [
+            "FirstName": ""
+            ]
+        
+        let headers1 = [
+            "auth-token": token
+        ]
+        
+        let url = "http://giflisozluk.com/api/v1/student/updateImageByToken"
+        
+        let urlImage = URL(fileURLWithPath: localPath)
+        
+        print("urlImage \(urlImage)")
+        
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            
+            multipartFormData.append(urlImage, withName: "image", fileName: "temp.jpg", mimeType: "image/jpeg")
+            
+            for (key, val) in parameters {
+                multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
+            }
+            
+        }, to: url, method: HTTPMethod.post, headers: headers1,
+           
+           encodingCompletion: { encodingResult in
+            
+            switch encodingResult {
+                
+            case .success(let upload, _, _):
+                upload.responseJSON { response in
+                    if let jsonResponse = response.result.value as? [String: Any] {
+                        
+                        let json = JSON(jsonResponse)
+                        
+                        let user = json["user"]
+                        let status = json["status"].intValue
+                        let message = json["message"].stringValue
+                        
+                        print(json)
+                        print(user)
+                        
+                        
+                        if status == 200
+                        {
+                            //store data
+                            
+                            SCLAlertView().showSuccess("Success!!", subTitle: message)
+                            
+                            //self.performSegue(withIdentifier: "homeViewSegue", sender: self)
+                            
+                            // resim secildigi anda cihaz id ile ilgili varsa update yok ise yeni uye kaydi olusturmali.
+                            
+                            
+                        }else if status == 400
+                        {
+                            
+                            SCLAlertView().showError("Upps!!", subTitle: message)
+                            
+                            //self.labelMessage.text = message
+                            
+                        }
+                        
+                        
+                    }
+                }
+            case .failure(let encodingError):
+                print(encodingError)
+            }
+            
+        })
+    }
+
     
 
 }

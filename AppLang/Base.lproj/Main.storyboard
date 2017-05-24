@@ -164,11 +164,17 @@
                                             <action selector="btnBack:" destination="Veu-3w-6FL" eventType="touchUpInside" id="5kE-YG-y1V"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouG-gl-0Lt">
-                                        <rect key="frame" x="176" y="15" width="52" height="27"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouG-gl-0Lt">
+                                        <rect key="frame" x="157.5" y="15" width="50" height="30"/>
+                                        <color key="backgroundColor" red="0.85098039219999999" green="0.66274509800000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="69g-OW-ddj"/>
+                                            <constraint firstAttribute="height" constant="30" id="jpg-D4-D7N"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <state key="normal" title="Reset"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnReset:" destination="Veu-3w-6FL" eventType="touchUpInside" id="qJI-h1-5mg"/>
                                         </connections>
@@ -178,7 +184,9 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="xyo-fq-DEw" secondAttribute="bottom" constant="5" id="6bB-x3-WAW"/>
                                     <constraint firstAttribute="bottom" secondItem="hpT-d8-FJ5" secondAttribute="bottom" constant="5" id="7Ib-Sy-wfg"/>
+                                    <constraint firstAttribute="bottom" secondItem="ouG-gl-0Lt" secondAttribute="bottom" constant="5" id="LZW-nQ-AJf"/>
                                     <constraint firstAttribute="trailing" secondItem="xyo-fq-DEw" secondAttribute="trailing" constant="5" id="ONu-ne-f3O"/>
+                                    <constraint firstItem="ouG-gl-0Lt" firstAttribute="centerX" secondItem="bL2-2d-WXx" secondAttribute="centerX" id="e1M-gB-QtQ"/>
                                     <constraint firstItem="hpT-d8-FJ5" firstAttribute="leading" secondItem="bL2-2d-WXx" secondAttribute="leading" constant="5" id="hDj-0g-qnu"/>
                                     <constraint firstAttribute="height" constant="50" id="p04-9z-NQq"/>
                                 </constraints>
