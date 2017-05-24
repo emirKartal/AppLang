@@ -100,7 +100,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func buttonLogin(_ sender: Any) {
         
-    performSegue(withIdentifier: "registerToLoginSegue", sender: self)
+        performSegue(withIdentifier: "registerToLoginSegue", sender: self)
         
     }
 

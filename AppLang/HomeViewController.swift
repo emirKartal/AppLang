@@ -7,21 +7,31 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
+    
+    var json:JSON = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        //let data = UserDefaults.standard.string(forKey: "jsonUser")!
         
+        //let json = JSON(data)
+        
+        //print(json["user"])
+        //print(json)
         
         // popover koyulaak dil secenekleri,
         // from id, to id, userdefault atilacak. 
         // TODO:
+        
         
         let url = UserDefaults.standard.string(forKey: "userImage")!
         print(String(describing: url))
@@ -40,10 +50,28 @@ class HomeViewController: UIViewController {
          self.performSegue(withIdentifier: "menuViewSegue", sender: self)
         
     }
-
+    
+    @IBAction func buttonRegister(_ sender: Any) {
+        
+        //self.performSegue(withIdentifier: "rememberToRegisterSegue", sender: self)
+        
+    }
+    
+    let imageCache = NSCache<NSString, UIImage>()
+    
     func get_image(_ url_str: String, _imageView: UIImageView){
     
         let url:URL = URL(string: url_str)!
+        let nsUrl = NSString(string: url_str)
+        
+        if let imageFromCache = imageCache.object(forKey: nsUrl) {
+        
+            _imageView.image = imageFromCache
+            print("return")
+            return
+        }
+        
+        print("return degil")
         let session = URLSession.shared
         let task = session.dataTask(with: url) { (data, response, error ) in
             
@@ -52,7 +80,10 @@ class HomeViewController: UIViewController {
                 let image = UIImage(data: data!)
                 if (image != nil)
                 {
-                    DispatchQueue.main.async(execute: { 
+                    DispatchQueue.main.async(execute: {
+                        
+                        self.imageCache.setObject(image!, forKey: nsUrl)
+                        
                         _imageView.image = image
                     })
                 }

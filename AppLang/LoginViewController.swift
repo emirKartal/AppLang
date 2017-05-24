@@ -18,11 +18,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var labelMessage: UILabel!
     
     var json:JSON = []
+    
     var gradientLayer: CAGradientLayer!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let deviceId = UserDefaults.standard.string(forKey: "deviceId")!
         print(deviceId)
         
@@ -104,8 +106,7 @@ class LoginViewController: UIViewController {
         
         let email = lblEmail.text!
         let password = lblPassword.text!
-        let deviceId =  UIDevice.current.identifierForVendor!.uuidString
-        print(deviceId)
+        let deviceId = UserDefaults.standard.string(forKey: "deviceId")!
         getJSON(userPassword: password, userEmail: email, deviceId:deviceId)
         
         
@@ -202,6 +203,7 @@ class LoginViewController: UIViewController {
                     let message = json["message"].stringValue
                     
                     UserDefaults.standard.set(status, forKey: "status")
+                    //UserDefaults.standard.set(json, forKey: "jsonUser")
                     
                     if status == 200
                     {
