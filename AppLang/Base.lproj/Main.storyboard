@@ -282,8 +282,8 @@
                         <outlet property="labelCorrectPoint" destination="wbH-eB-WFQ" id="kTe-5h-D5L"/>
                         <outlet property="labelQuestionCount" destination="df3-bw-7Vs" id="TZk-Z8-fHw"/>
                         <outlet property="labelQuestionIndex" destination="ZVA-Qy-ych" id="dc5-K8-mff"/>
-                        <segue destination="lb4-fc-Ws7" kind="show" identifier="toHomeBack" id="Pk3-pw-ajC"/>
                         <segue destination="U2D-0D-ucB" kind="show" identifier="toResultView" id="I3x-zC-hHO"/>
+                        <segue destination="In3-Bq-t9y" kind="show" identifier="toHomeBack" id="OnZ-V2-cIa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sej-TN-cYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1105,6 +1105,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="N55-me-x4x"/>
         <segue reference="esx-bC-KoH"/>
-        <segue reference="Pk3-pw-ajC"/>
+        <segue reference="OnZ-V2-cIa"/>
     </inferredMetricsTieBreakers>
 </document>

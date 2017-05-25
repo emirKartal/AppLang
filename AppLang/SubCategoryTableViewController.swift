@@ -15,11 +15,27 @@ class SubCategoryTableViewController: UITableViewController {
     var subCategoryArr = [String]()
     var json:JSON = []
     var frCatDic = [String:Any]()
+    var categoryId = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationItem.title = frCatDic["subCatNavTitle"] as? String
-        getJSON()
+        
+        let userDefaultsCatId = UserDefaults.standard.integer(forKey: "selectedCatId")
+        
+        if userDefaultsCatId < 1
+        {
+            categoryId = frCatDic["selectedCatId"] as! Int
+            UserDefaults.standard.set(categoryId, forKey: "selectedCatId")
+            
+        }else
+        {
+            categoryId = userDefaultsCatId
+        }
+        
+        //selectedCatId
+        getJSON(categoryId : categoryId)
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,9 +81,9 @@ class SubCategoryTableViewController: UITableViewController {
     }
     
     
-    func getJSON() {
+    func getJSON(categoryId : Int) {
         
-        let url = "http://www.giflisozluk.com/api/v1/SubCategory/GetSubCategoriesByCategoryId/\(frCatDic["selectedCatId"] as! Int)"
+        let url = "http://www.giflisozluk.com/api/v1/SubCategory/GetSubCategoriesByCategoryId/\(categoryId)"
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             
             if let data = response.result.value{
