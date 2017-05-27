@@ -26,16 +26,21 @@ class ProfileViewController: UIViewController {
         imageView.layer.borderWidth = 2.0;
         imageView.layer.masksToBounds = true
 
-        //UIColor(white: 1, alpha: 0.5)
+        
+        //topView.accessibilityPath = doYourPath
+
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = topView.bounds
-        gradientLayer.colors = [UIColor(white: 1, alpha:1.0).cgColor, UIColor(white: 1, alpha:0).cgColor]
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor(red:0.76, green:0.22, blue:0.39, alpha:1.0).cgColor, UIColor(red:0.11, green:0.15, blue:0.44, alpha:1.0).cgColor]
+        
+        gradientLayer.startPoint = CGPoint(x: 50, y: 50)
+        gradientLayer.endPoint = CGPoint(x: 300, y: 300)
+
+        //self.view.layer.addSublayer(gradientLayer)
+        //self.view.sendSubview(toBack: self.view)
         
         
-        
-        //topView.backgroundColor = UIColor(white: 10, alpha: 0.5)
-    
     }
     
 

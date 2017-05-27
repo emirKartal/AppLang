@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8ZF-g8-d2Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ly-7M-kvs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,14 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zcl-6k-osZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJ1-Rp-qJ0">
+                                <rect key="frame" x="0.0" y="20" width="375" height="160"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfu-T8-CJK">
-                                        <rect key="frame" x="112" y="50" width="150" height="150"/>
+                                        <rect key="frame" x="112.5" y="85" width="150" height="150"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="Qe3-1R-4Ui"/>
-                                            <constraint firstAttribute="width" constant="150" id="fXO-DD-cCR"/>
+                                            <constraint firstAttribute="height" constant="150" id="Mgn-Rp-nGe"/>
+                                            <constraint firstAttribute="width" constant="150" id="Rk2-xO-jKI"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="avatar"/>
                                         <connections>
@@ -37,29 +37,28 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.85098039219999999" green="0.66274509800000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="wfu-T8-CJK" firstAttribute="centerY" secondItem="Zcl-6k-osZ" secondAttribute="centerY" id="4LQ-W5-rcS"/>
-                                    <constraint firstAttribute="height" constant="250" id="62K-Kv-VO3"/>
-                                    <constraint firstItem="wfu-T8-CJK" firstAttribute="centerX" secondItem="Zcl-6k-osZ" secondAttribute="centerX" id="NVA-zX-RjZ"/>
+                                    <constraint firstAttribute="height" constant="320" id="0m5-qE-S6a"/>
+                                    <constraint firstItem="wfu-T8-CJK" firstAttribute="centerX" secondItem="XJ1-Rp-qJ0" secondAttribute="centerX" id="5Pd-2y-Kc4"/>
+                                    <constraint firstItem="wfu-T8-CJK" firstAttribute="centerY" secondItem="XJ1-Rp-qJ0" secondAttribute="centerY" id="s6o-Nq-MCU"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zcl-6k-osZ" firstAttribute="leading" secondItem="2x1-8X-u2k" secondAttribute="leading" id="DJz-qA-m0R"/>
-                            <constraint firstItem="Zcl-6k-osZ" firstAttribute="top" secondItem="2x1-8X-u2k" secondAttribute="top" id="DSi-Xx-cXr"/>
-                            <constraint firstAttribute="trailing" secondItem="Zcl-6k-osZ" secondAttribute="trailing" id="hLD-1c-58h"/>
+                            <constraint firstItem="XJ1-Rp-qJ0" firstAttribute="leading" secondItem="2x1-8X-u2k" secondAttribute="leading" id="34E-Ug-w1q"/>
+                            <constraint firstItem="XJ1-Rp-qJ0" firstAttribute="top" secondItem="5ha-Gx-fz9" secondAttribute="bottom" id="Jz1-US-hUV"/>
+                            <constraint firstAttribute="trailing" secondItem="XJ1-Rp-qJ0" secondAttribute="trailing" id="NEk-em-MRh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="profileImageButton" destination="wfu-T8-CJK" id="JtI-pP-VUg"/>
-                        <outlet property="topView" destination="Zcl-6k-osZ" id="5tB-dt-Jpb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eud-JY-rof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-335" y="802"/>
+            <point key="canvasLocation" x="-518" y="884"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="X6j-82-oOT">
@@ -285,7 +284,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBF-31-CbI">
-                                <rect key="frame" x="163" y="30" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="30" width="50" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bnR-WZ-y3a">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1097,7 +1096,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="odh-wj-6ao">
-                                <rect key="frame" x="63" y="20" width="250" height="250"/>
+                                <rect key="frame" x="62.5" y="20" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="9Na-Cw-Aed"/>
                                     <constraint firstAttribute="width" constant="250" id="dli-B9-7gC"/>
@@ -1155,7 +1154,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="N55-me-x4x"/>
-        <segue reference="esx-bC-KoH"/>
+        <segue reference="v2K-i4-aj7"/>
         <segue reference="OnZ-V2-cIa"/>
     </inferredMetricsTieBreakers>
 </document>

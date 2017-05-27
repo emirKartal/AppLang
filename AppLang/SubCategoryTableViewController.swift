@@ -22,6 +22,8 @@ class SubCategoryTableViewController: UITableViewController {
         
         navigationItem.title = frCatDic["subCatNavTitle"] as? String
         
+        categoryId = frCatDic["selectedCatId"] as! Int
+        /*
         let userDefaultsCatId = UserDefaults.standard.integer(forKey: "selectedCatId")
         
         if userDefaultsCatId < 1
@@ -33,6 +35,7 @@ class SubCategoryTableViewController: UITableViewController {
         {
             categoryId = userDefaultsCatId
         }
+        */
         
         //selectedCatId
         getJSON(categoryId : categoryId)

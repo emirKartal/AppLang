@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         let deviceId = UserDefaults.standard.string(forKey: "deviceId")!
         print(deviceId)
         
-        //getUserByToken(token: deviceId)
+        getUserByToken(token: deviceId)
         
         observekeyboardNotifications()
         createGradientLayer()

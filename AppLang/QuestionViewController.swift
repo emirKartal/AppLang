@@ -44,7 +44,17 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
+        //self.navigationController?.navigationBar.isHidden = true
+        
+        
+        // home butonu start game sayfasina gidecek
+        // unite bitiminde 3 adet buton cikacak 
+        // bir sonraki unite
+        // anasayfaya don
+        // sonucu goster
+        
+        // alert viewde score goster score: 85 puan
+        // unite 1 : 5 dogru 15 yanlis.
         
         loadData()
         
@@ -54,7 +64,7 @@ class QuestionViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         
     }
