@@ -46,14 +46,7 @@ class QuestionViewController: UIViewController {
         
         //self.navigationController?.navigationBar.isHidden = true
         
-        
-        // home butonu start game sayfasina gidecek
-        // unite bitiminde 3 adet buton cikacak 
-        // bir sonraki unite
-        // anasayfaya don
-        // sonucu goster
-        
-        // alert viewde score goster score: 85 puan
+        // back butonuna art arda basilinca puan isi olmuo ona bak
         // unite 1 : 5 dogru 15 yanlis.
         
         loadData()
@@ -119,6 +112,7 @@ class QuestionViewController: UIViewController {
 
     @IBAction func btnHome(_ sender: Any) {
         
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         performSegue(withIdentifier: "toHomeBack", sender: nil)
         
     }
@@ -128,14 +122,24 @@ class QuestionViewController: UIViewController {
         
         if questionNum + 1 == questionArr.count{
             
-            let alertView = SCLAlertView()
+            let appearance = SCLAlertView.SCLAppearance(
+                showCloseButton : false
+            )
+            let alertView = SCLAlertView(appearance: appearance)
+            
             alertView.addButton("Results", action: {
-                
                 self.performSegue(withIdentifier: "toResultView", sender: nil)
-                
             })
             
-            alertView.showSuccess("Bravooo!!!", subTitle: "You did it :))")
+            alertView.addButton("Home", action: {
+                self.btnHome(self)
+            })
+            
+            alertView.addButton("Next Unit", action: {
+                //self.performSegue(withIdentifier: "toResultView", sender: nil)
+            })
+
+            alertView.showSuccess("Bravooo!!!", subTitle: "Your score is \(score)")
             
             /*if answerArr[questionNum] != AnswerTxt.text{
                 SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")

@@ -333,7 +333,7 @@
                         <outlet property="labelQuestionCount" destination="df3-bw-7Vs" id="TZk-Z8-fHw"/>
                         <outlet property="labelQuestionIndex" destination="ZVA-Qy-ych" id="dc5-K8-mff"/>
                         <segue destination="U2D-0D-ucB" kind="show" identifier="toResultView" id="I3x-zC-hHO"/>
-                        <segue destination="In3-Bq-t9y" kind="show" identifier="toHomeBack" id="OnZ-V2-cIa"/>
+                        <segue destination="C32-wW-MOf" kind="show" identifier="toHomeBack" id="sFM-6E-8Ec"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sej-TN-cYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1153,8 +1153,8 @@
         <image name="sound" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="sFM-6E-8Ec"/>
         <segue reference="N55-me-x4x"/>
         <segue reference="v2K-i4-aj7"/>
-        <segue reference="OnZ-V2-cIa"/>
     </inferredMetricsTieBreakers>
 </document>
