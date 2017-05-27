@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ly-7M-kvs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8ZF-g8-d2Y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,57 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="jgv-q6-vvT">
+            <objects>
+                <viewController id="8ZF-g8-d2Y" customClass="ProfileViewController" customModule="AppLang" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ha-Gx-fz9"/>
+                        <viewControllerLayoutGuide type="bottom" id="xfF-8t-rK1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2x1-8X-u2k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zcl-6k-osZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfu-T8-CJK">
+                                        <rect key="frame" x="112" y="50" width="150" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="Qe3-1R-4Ui"/>
+                                            <constraint firstAttribute="width" constant="150" id="fXO-DD-cCR"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="avatar"/>
+                                        <connections>
+                                            <action selector="profileImageButton:" destination="8ZF-g8-d2Y" eventType="touchUpInside" id="8WA-5g-UMq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.66274509800000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="wfu-T8-CJK" firstAttribute="centerY" secondItem="Zcl-6k-osZ" secondAttribute="centerY" id="4LQ-W5-rcS"/>
+                                    <constraint firstAttribute="height" constant="250" id="62K-Kv-VO3"/>
+                                    <constraint firstItem="wfu-T8-CJK" firstAttribute="centerX" secondItem="Zcl-6k-osZ" secondAttribute="centerX" id="NVA-zX-RjZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zcl-6k-osZ" firstAttribute="leading" secondItem="2x1-8X-u2k" secondAttribute="leading" id="DJz-qA-m0R"/>
+                            <constraint firstItem="Zcl-6k-osZ" firstAttribute="top" secondItem="2x1-8X-u2k" secondAttribute="top" id="DSi-Xx-cXr"/>
+                            <constraint firstAttribute="trailing" secondItem="Zcl-6k-osZ" secondAttribute="trailing" id="hLD-1c-58h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageButton" destination="wfu-T8-CJK" id="JtI-pP-VUg"/>
+                        <outlet property="topView" destination="Zcl-6k-osZ" id="5tB-dt-Jpb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eud-JY-rof" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-335" y="802"/>
+        </scene>
         <!--Result View Controller-->
         <scene sceneID="X6j-82-oOT">
             <objects>

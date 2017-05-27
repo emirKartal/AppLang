@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         let deviceId = UserDefaults.standard.string(forKey: "deviceId")!
         print(deviceId)
         
-        getUserByToken(token: deviceId)
+        //getUserByToken(token: deviceId)
         
         observekeyboardNotifications()
         createGradientLayer()
@@ -107,6 +107,13 @@ class LoginViewController: UIViewController {
         let email = lblEmail.text!
         let password = lblPassword.text!
         let deviceId = UserDefaults.standard.string(forKey: "deviceId")!
+        
+        if email.isEmpty || password.isEmpty {
+            
+            SCLAlertView().showError("Upps!!", subTitle: "Email ve Sifre giriniz.")
+            return
+        }
+        
         getJSON(userPassword: password, userEmail: email, deviceId:deviceId)
         
         
