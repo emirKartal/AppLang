@@ -29,7 +29,7 @@ class QuestionViewController: UIViewController {
     
     var score = 0
     var correctPointCount = 0
-    
+    var backButtonControl = Bool()
     
     @IBOutlet weak var QuestionLbl: UILabel!
     @IBOutlet weak var AnswerTxt: UITextField!
@@ -91,7 +91,11 @@ class QuestionViewController: UIViewController {
             return
             
         }
+        if backButtonControl {
+            correctPointCount -= 1
+        }
         
+        loadData()
         wordNum = 0
         AnswerTxt.text = ""
         wordCheck = ""
@@ -146,16 +150,17 @@ class QuestionViewController: UIViewController {
             
             deleteButtons()
             correctPointCount  = correctPointCount + 1
+            backButtonControl = true
             
         }else {
            
             //SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
-            correctPointCount = 1 // buna bakicaz
+            backButtonControl = false
             deleteButtons()
             
         }
         
-        if correctPointCount % 5 == 0 {
+        if correctPointCount % 5 == 0 && correctPointCount != 0 {
             
             SCLAlertView().showSuccess("Run Forrest Run :))", subTitle: "Pes pese 5 soru dogru...")
             
@@ -186,7 +191,7 @@ class QuestionViewController: UIViewController {
     
     func loadData() {
     
-        //UserDefaults.standard.set(0, forKey: "totalPoint")
+        score = correctPointCount * 5
         labelCorrectPoint.text = String(score)
        
         
