@@ -157,11 +157,133 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         let lastname = labelLastName.text!
         let gsm = labelGsm.text!
         
-        register(local: localPath, email: email, password: password, firstname: firstname, lastname: lastname, gsm: gsm)
+        if email.isEmpty || password.isEmpty || gsm.isEmpty {
+        
+            SCLAlertView().showError("Upps!!", subTitle: "Email, Sifre ve Gsm zorunlu alan.")
+            return
+        }
+        
+        register(email: email, password: password, firstname: firstname, lastname: lastname, gsm: gsm)
+        
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton : false
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton("HOME", action: {
+            self.performSegue(withIdentifier: "toRegisterFromHome", sender: nil)
+        })
+        
+        alertView.showSuccess("OK!!!", subTitle: "Bilgiler guncellendi")
+
+    }
+    
+    func getUserByToken(token : String) -> Bool {
+        
+        let url = "http://giflisozluk.com/api/v1/student"
+        
+        let params: Parameters = [
+            "password": "",
+            "email": ""
+        ]
+        
+        var state = false
+        
+        let headers: HTTPHeaders = [
+            "auth-token": token
+        ]
+        
+        Alamofire.request(url ,method: .get ,parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value{
+                    
+                    let json = JSON(data)
+                    
+                    print(json)
+                    print(json["user"])
+                    
+                    //let user = json["user"]
+                    let status = json["status"].intValue
+                    //let message = json["message"].stringValue
+                    
+                    if status == 200
+                    {
+                        state = true
+                        
+                    }else if status == 400
+                    {
+                        state = false
+                    }
+                    
+                }
+                break
+                
+            case .failure(_):
+                print(response.result.error ?? "selam")
+                break
+                
+            }
+            
+        }
+        
+        return state
+        
+    }
+
+    
+    func getUserByEmailAndToken(email: String, deviceId: String ) -> Bool {
+        
+        let url = "http://giflisozluk.com/api/v1/student/getuser"
+        
+        var state = false
+        
+        let params: Parameters = [
+            "email": email
+        ]
+        
+        let headers: HTTPHeaders = [
+            "auth-token": deviceId
+        ]
+        
+        Alamofire.request(url ,method: .post ,parameters: params, encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value{
+                    
+                    let json = JSON(data)
+                    
+                    //let user = json["user"]
+                    let status = json["status"].intValue
+                    //let message = json["message"].stringValue
+                    
+                    if status == 200
+                    {
+                        state = true
+                        
+                    }else if status == 400
+                    {
+                        state = false
+                    }
+                    
+                }
+                break
+                
+            case .failure(_):
+                print(response.result.error ?? "say: Hi!")
+                break
+                
+            }
+            
+        }
+        
+        return state
         
     }
     
-    func register(local: String,email: String, password: String, firstname: String, lastname:String, gsm: String ) {
+    func register(email: String, password: String, firstname: String, lastname:String, gsm: String ) {
         
         let parameters = [
             "FirstName": firstname,
@@ -169,81 +291,59 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             "Email": email,
             "Gsm": gsm,
             "Password": password,
-            "Gender": "0",
+            "Gender": "0"
+        ]
+        
+        let headers: HTTPHeaders = [
+            "auth-token": deviceId
+        ]
+        
+        let url = "http://giflisozluk.com/api/v1/student/newuser"
+        
+        Alamofire.request(url ,method: .post ,parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             
-            ]
-        
-        let headers1 = [
-            "auth-token": "1DD67360-BAE0-44F1-83F0-EF5520B12234"
-            ]
-        
-        let url = "http://giflisozluk.com/api/v1/student"
-        
-        let urlImage = URL(fileURLWithPath: localPath)
-        
-        print("urlImage \(urlImage)")
-        
-        Alamofire.upload(multipartFormData: { multipartFormData in
-            
-            multipartFormData.append(urlImage, withName: "image", fileName: "temp.jpg", mimeType: "image/jpeg")
-        
-        for (key, val) in parameters {
-            multipartFormData.append(val.data(using: String.Encoding.utf8)!, withName: key)
-        }
-         print("multipart \(multipartFormData)")
-            
-        }, to: url, method: HTTPMethod.put, headers: headers1,
-           
-           encodingCompletion: { encodingResult in
-            
-            switch encodingResult {
+            switch(response.result) {
+            case .success(_):
+                if let data = response.result.value{
+                    
+                    let json = JSON(data)
+                    
+                    print(json)
+                    print(json["user"])
+                    
+                    let user = json["user"]
+                    let status = json["status"].intValue
+                    let message = json["message"].stringValue
+                    
+                    UserDefaults.standard.set(status, forKey: "status")
+                    
+                    if status == 200
+                    {
+                        //store data
+                        UserDefaults.standard.set(user["FullName"].stringValue, forKey: "userEmail")
+                        UserDefaults.standard.set(user["token"].stringValue, forKey: "userPassword")
+                        UserDefaults.standard.set(user["Image"].stringValue, forKey: "userImage")
+                        UserDefaults.standard.set(true, forKey: "isUserLoggenIn") //Bool
                         
-                    case .success(let upload, _, _):
-                        upload.responseJSON { response in
-                            if let jsonResponse = response.result.value as? [String: Any] {
-                            
-                                let json = JSON(jsonResponse)
-                                
-                                print(json)
-                                print(json["user"])
-                                
-                                let user = json["user"]
-                                let status = json["status"].intValue
-                                let message = json["message"].stringValue
-
-                                
-                                if status == 200
-                                {
-                                    //store data
-                                    UserDefaults.standard.set(user["FullName"].stringValue, forKey: "userEmail")
-                                    UserDefaults.standard.set(user["token"].stringValue, forKey: "userPassword")
-                                    UserDefaults.standard.set(user["Image"].stringValue, forKey: "userImage")
-                                    UserDefaults.standard.set(true, forKey: "isUserLoggenIn") //Bool
-                                    
-                                    SCLAlertView().showSuccess("Success!!", subTitle: message)
-                                    
-                                    //self.performSegue(withIdentifier: "homeViewSegue", sender: self)
-                                    
-                                    // resim secildigi anda cihaz id ile ilgili varsa update yok ise yeni uye kaydi olusturmali.
-                                    
-                                    
-                                }else if status == 400
-                                {
-                                    
-                                    SCLAlertView().showError("Upps!!", subTitle: message)
-                                    
-                                    //self.labelMessage.text = message
-                                    
-                                }
-
-                            
-                            }
+                        //self.performSegue(withIdentifier: "homeViewSegue", sender: self)
+                        //SCLAlertView().showSuccess("OK", subTitle: message)
+                        
+                    }else if status == 400
+                    {
+                        SCLAlertView().showError("Upps!!", subTitle: message)
                     }
-                    case .failure(let encodingError):
-                         print(encodingError)
+                    
+                }
+                break
+                
+            case .failure(_):
+                print(response.result.error ?? "selam")
+                break
+                
             }
             
-        })
+        }
+        
     }
 
     func uploadImage(local: String, token: String ) {
@@ -319,7 +419,5 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             
         })
     }
-
-    
 
 }

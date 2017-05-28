@@ -939,6 +939,7 @@
                         <outlet property="labelLastName" destination="PzV-bD-DAZ" id="8Vn-P6-LFe"/>
                         <outlet property="labelPassword" destination="yq4-pw-BQq" id="RbB-g0-Zkh"/>
                         <outlet property="myImageView" destination="mFq-fo-P9U" id="sPS-vM-vqs"/>
+                        <segue destination="C32-wW-MOf" kind="show" identifier="toRegisterFromHome" id="n4K-Ia-Ae0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4o-f4-Zmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1273,8 +1274,8 @@
         <image name="sound" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aEC-j8-IBF"/>
-        <segue reference="N55-me-x4x"/>
-        <segue reference="v2K-i4-aj7"/>
+        <segue reference="n4K-Ia-Ae0"/>
+        <segue reference="cyr-eS-k7B"/>
+        <segue reference="zN2-sx-jIg"/>
     </inferredMetricsTieBreakers>
 </document>

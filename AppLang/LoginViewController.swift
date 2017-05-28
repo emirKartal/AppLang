@@ -28,14 +28,14 @@ class LoginViewController: UIViewController {
         let deviceId = UserDefaults.standard.string(forKey: "deviceId")!
         print(deviceId)
         
-        //getUserByToken(token: deviceId)
+        // beni hatirla dedigi zaman bu islemi yap.
+        getUserByToken(token: deviceId)
         
         observekeyboardNotifications()
         createGradientLayer()
         
         self.hideKeyboardWhenTappedAround()
         
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -164,9 +164,6 @@ class LoginViewController: UIViewController {
                     {
                         
                         SCLAlertView().showError("Upps!!", subTitle: message)
-                        
-                        //self.labelMessage.text = message
-                        
                     }
                     
                 }
@@ -225,11 +222,7 @@ class LoginViewController: UIViewController {
                         
                     }else if status == 400
                     {
-                        
                         SCLAlertView().showError("Upps!!", subTitle: message)
-                        
-                        //self.labelMessage.text = message
-                        
                     }
                     
                 }
