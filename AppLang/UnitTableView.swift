@@ -19,6 +19,8 @@ class UnitTableView: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableViewDesign(sender: self)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         getJSON()
         
@@ -45,9 +47,10 @@ class UnitTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "unitIdentifier", for: indexPath)
         
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = unitArr[indexPath.row]
         
-
         return cell
     }
     
@@ -84,9 +87,19 @@ class UnitTableView: UITableViewController {
             
         }
         
-
-    
     }
+    
+    func tableViewDesign(sender: UITableViewController) {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor(red:0.76, green:0.22, blue:0.39, alpha:1.0).cgColor, UIColor(red:0.11, green:0.15, blue:0.44, alpha:1.0).cgColor]
+        gradientLayer.frame = sender.tableView.bounds
+        let backgroundView = UIView(frame: sender.tableView.bounds)
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        sender.tableView.backgroundView = backgroundView
+        
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

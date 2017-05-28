@@ -20,6 +20,7 @@ class SubCategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableViewDesign(sender: self)
         navigationItem.title = frCatDic["subCatNavTitle"] as? String
         
         categoryId = frCatDic["selectedCatId"] as! Int
@@ -62,6 +63,8 @@ class SubCategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "subCategoryCell", for: indexPath)
         
+        cell.backgroundColor = UIColor.clear
+        cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = subCategoryArr[indexPath.row]
         return cell
     }
@@ -103,6 +106,18 @@ class SubCategoryTableViewController: UITableViewController {
             
         }
     }
+    
+    func tableViewDesign(sender: UITableViewController) {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor(red:0.76, green:0.22, blue:0.39, alpha:1.0).cgColor, UIColor(red:0.11, green:0.15, blue:0.44, alpha:1.0).cgColor]
+        gradientLayer.frame = sender.tableView.bounds
+        let backgroundView = UIView(frame: sender.tableView.bounds)
+        backgroundView.layer.insertSublayer(gradientLayer, at: 0)
+        sender.tableView.backgroundView = backgroundView
+        
+    }
+
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
