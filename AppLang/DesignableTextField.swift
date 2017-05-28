@@ -10,7 +10,7 @@ import UIKit
 
 
 @IBDesignable
-class DesingableTextField: UITextField {
+class DesignableTextField: UITextField {
 
     @IBInspectable var leftImage: UIImage? {
     
@@ -62,7 +62,7 @@ class DesingableTextField: UITextField {
             imageView.image = image
             imageView.tintColor = tintColor
             
-            var width = leftPadding + 20
+            var width = leftPadding + imageWidth
             
             if borderStyle == UITextBorderStyle.none || borderStyle == UITextBorderStyle.line {
             
