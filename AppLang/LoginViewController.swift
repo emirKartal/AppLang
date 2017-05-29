@@ -29,7 +29,9 @@ class LoginViewController: UIViewController {
         print(deviceId)
         
         // beni hatirla dedigi zaman bu islemi yap.
-        getUserByToken(token: deviceId)
+        //UserDefaults.standard.set(json, forKey: "userJson")
+        
+        //getUserByToken(token: deviceId)
         
         observekeyboardNotifications()
         createGradientLayer()
@@ -156,6 +158,8 @@ class LoginViewController: UIViewController {
                         UserDefaults.standard.set(user["token"].stringValue, forKey: "userPassword")
                         UserDefaults.standard.set(user["Image"].stringValue, forKey: "userImage")
                         UserDefaults.standard.set(true, forKey: "isUserLoggenIn") //Bool
+                        
+                        UserDefaults.standard.set(json, forKey: "userJson")
                         
                         self.performSegue(withIdentifier: "homeViewSegue", sender: self)
                         
