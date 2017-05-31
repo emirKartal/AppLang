@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
         // beni hatirla dedigi zaman bu islemi yap.
         //UserDefaults.standard.set(json, forKey: "userJson")
         
-        getUserByToken(token: deviceId)
+        //getUserByToken(token: deviceId)
         
         observekeyboardNotifications()
         createGradientLayer()
@@ -159,9 +159,12 @@ class LoginViewController: UIViewController {
                         UserDefaults.standard.set(user["Image"].stringValue, forKey: "userImage")
                         UserDefaults.standard.set(true, forKey: "isUserLoggenIn") //Bool
                         
-                        UserDefaults.standard.set(json, forKey: "userJson")
+                        //UserDefaults.standard.set(json, forKey: "userJson")
                         
-                        self.performSegue(withIdentifier: "homeViewSegue", sender: self)
+                        //let datasss = UserDefaults.standard.object(forKey: "userJson") as? JSON
+                        //print(datasss)
+                        
+                       self.performSegue(withIdentifier: "homeViewSegue", sender: self)
                         
                         
                     }else if status == 400

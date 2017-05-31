@@ -68,6 +68,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		304B75EC1EDF345B0052FA9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		304B75ED1EDF34730052FA9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF0DE04C1EDAB52B00621216 /* DesignableTextField.swift */,
+				BF5E20261EDDFD9A001E780E /* DesignableButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		304B75EE1EDF347A0052FA9A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3075A32D1EA7F50000988815 /* UnitTableView.swift */,
+				30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */,
+				30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */,
+				30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */,
+				30560CD61EAE9B4100BF1A3B /* LoginViewController.swift */,
+				30A616551EAFB36500240D7B /* QuestionViewController.swift */,
+				30A616571EAFBB0B00240D7B /* ResultViewController.swift */,
+				3075A31B1EA7F2D200988815 /* ViewController.swift */,
+				30B7F7831EB8F3190096EA4B /* HomeViewController.swift */,
+				BF9EB2F01ED14357000D32AA /* RememberViewController.swift */,
+				BFF2C9801ED853C3009936CD /* ProfileViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		3075A30D1EA7F2D200988815 = {
 			isa = PBXGroup;
 			children = (
@@ -89,25 +123,15 @@
 		3075A3181EA7F2D200988815 /* AppLang */ = {
 			isa = PBXGroup;
 			children = (
+				304B75EC1EDF345B0052FA9A /* Model */,
+				304B75ED1EDF34730052FA9A /* View */,
+				304B75EE1EDF347A0052FA9A /* Controller */,
 				BF01600B1EBDC16300CE72D6 /* sounds */,
 				3075A3191EA7F2D200988815 /* AppDelegate.swift */,
 				3075A31D1EA7F2D200988815 /* Main.storyboard */,
-				3075A32D1EA7F50000988815 /* UnitTableView.swift */,
-				30BBCC041EA923B500D864B1 /* CategoryTableViewController.swift */,
-				30BBCC061EA92C0F00D864B1 /* SubCategoryTableViewController.swift */,
-				30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */,
-				30560CD61EAE9B4100BF1A3B /* LoginViewController.swift */,
-				3075A31B1EA7F2D200988815 /* ViewController.swift */,
 				3075A3201EA7F2D200988815 /* Assets.xcassets */,
 				3075A3221EA7F2D200988815 /* LaunchScreen.storyboard */,
 				3075A3251EA7F2D200988815 /* Info.plist */,
-				30A616551EAFB36500240D7B /* QuestionViewController.swift */,
-				30A616571EAFBB0B00240D7B /* ResultViewController.swift */,
-				30B7F7831EB8F3190096EA4B /* HomeViewController.swift */,
-				BF9EB2F01ED14357000D32AA /* RememberViewController.swift */,
-				BFF2C9801ED853C3009936CD /* ProfileViewController.swift */,
-				BF0DE04C1EDAB52B00621216 /* DesignableTextField.swift */,
-				BF5E20261EDDFD9A001E780E /* DesignableButton.swift */,
 			);
 			path = AppLang;
 			sourceTree = "<group>";
