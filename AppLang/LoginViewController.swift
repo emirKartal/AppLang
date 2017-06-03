@@ -31,12 +31,22 @@ class LoginViewController: UIViewController {
         // beni hatirla dedigi zaman bu islemi yap.
         //UserDefaults.standard.set(json, forKey: "userJson")
         
-        getUserByToken(token: deviceId)
+        //getUserByToken(token: deviceId)
         
         observekeyboardNotifications()
         createGradientLayer()
         
         self.hideKeyboardWhenTappedAround()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let x = UserDefaults.standard.object(forKey: "userJson") as? JSON {
+        
+            print("x iste \(x)")
+            
+        }
         
     }
     
@@ -164,7 +174,8 @@ class LoginViewController: UIViewController {
                         //let datasss = UserDefaults.standard.object(forKey: "userJson") as? JSON
                         //print(datasss)
                         
-                       self.performSegue(withIdentifier: "homeViewSegue", sender: self)
+                        self.performSegue(withIdentifier: "homeViewSegue", sender: self)
+
                         
                         
                     }else if status == 400
