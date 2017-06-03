@@ -26,6 +26,7 @@
 		BF0DE04D1EDAB52B00621216 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DE04C1EDAB52B00621216 /* DesignableTextField.swift */; };
 		BF5E20271EDDFD9A001E780E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5E20261EDDFD9A001E780E /* DesignableButton.swift */; };
 		BF9EB2F11ED14357000D32AA /* RememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EB2F01ED14357000D32AA /* RememberViewController.swift */; };
+		BFD88BCE1EE356FE00ED328B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD88BCD1EE356FE00ED328B /* User.swift */; };
 		BFF2C9811ED853C3009936CD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2C9801ED853C3009936CD /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		BF0DE04C1EDAB52B00621216 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		BF5E20261EDDFD9A001E780E /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		BF9EB2F01ED14357000D32AA /* RememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberViewController.swift; sourceTree = "<group>"; };
+		BFD88BCD1EE356FE00ED328B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BFF2C9801ED853C3009936CD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CA462C2453101886B3968056 /* Pods-AppLang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppLang/Pods-AppLang.debug.xcconfig"; sourceTree = "<group>"; };
 		D308F8CBE4F9D93BF90D86E1 /* Pods-AppLang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLang.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppLang/Pods-AppLang.release.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		304B75EC1EDF345B0052FA9A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BFD88BCD1EE356FE00ED328B /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				30560CD51EAE9AF900BF1A3B /* RegisterViewController.swift in Sources */,
 				BFF2C9811ED853C3009936CD /* ProfileViewController.swift in Sources */,
 				BF0DE04D1EDAB52B00621216 /* DesignableTextField.swift in Sources */,
+				BFD88BCE1EE356FE00ED328B /* User.swift in Sources */,
 				30B7F7841EB8F3190096EA4B /* HomeViewController.swift in Sources */,
 				BF5E20271EDDFD9A001E780E /* DesignableButton.swift in Sources */,
 				3075A31A1EA7F2D200988815 /* AppDelegate.swift in Sources */,
