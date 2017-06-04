@@ -11,12 +11,15 @@ import UIKit
 
 class ResultViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    var questionsResult = [String:Array<Any>]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.resultTableView.dataSource = self
         self.resultTableView.dataSource = self
-        // Do any additional setup after loading the view.
+        
         
         // Cevaplanamayan sorular listelenecek ve kullanici ister ise tekrar bu sorulara bakabilecek. 
         // Soru id listesi servisle gonderilecek. 
@@ -34,11 +37,11 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return (questionsResult["Questions"]?.count)!
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = "test"
+        cell?.textLabel?.text = questionsResult["Questions"]?[indexPath.row] as? String
         return cell!
     }
 

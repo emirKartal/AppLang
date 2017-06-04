@@ -26,6 +26,7 @@ class QuestionViewController: UIViewController {
     var bombSoundEffect: AVAudioPlayer!
     var qSound : AVPlayer!
     var soundArr = [String]()
+    var dicToResultView = [String:Array<Any>]()
     
     var score = 0
     var correctPointCount = 0
@@ -58,7 +59,7 @@ class QuestionViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         //self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
+        dicToResultView = ["Questions" : questionArr , "Answers" : answerArr , "Mistakes" : [1,2,3]]
         
     }
 
@@ -128,7 +129,7 @@ class QuestionViewController: UIViewController {
             let alertView = SCLAlertView(appearance: appearance)
             
             alertView.addButton("Results", action: {
-                self.performSegue(withIdentifier: "toResultView", sender: nil)
+                self.performSegue(withIdentifier: "toResultView", sender: self.dicToResultView)
             })
             
             alertView.addButton("Home", action: {
@@ -181,6 +182,17 @@ class QuestionViewController: UIViewController {
         
         loadData()
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResultView" {
+            
+            if let viewCont = segue.destination as? ResultViewController {
+                
+                viewCont.questionsResult = sender as! [String:Array<Any>]
+               
+            }
+        }
     }
     
     @IBAction func btnSound(_ sender: Any) {
