@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
         // beni hatirla dedigi zaman bu islemi yap.
         //UserDefaults.standard.set(json, forKey: "userJson")
         
-        //getUserByToken(token: deviceId)
+        getUserByToken(token: deviceId)
         
         observekeyboardNotifications()
         createGradientLayer()
