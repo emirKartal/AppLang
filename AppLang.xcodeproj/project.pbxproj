@@ -32,6 +32,7 @@
 		BFDEEF281EE40AD800D37D3C /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDEEF271EE40AD800D37D3C /* DesignableLabel.swift */; };
 		BFDEEF2A1EE5F8F500D37D3C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDEEF291EE5F8F500D37D3C /* Question.swift */; };
 		BFF2C9811ED853C3009936CD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2C9801ED853C3009936CD /* ProfileViewController.swift */; };
+		BFFD37FA1EE74C57009E3378 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFD37F91EE74C57009E3378 /* Answer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		BFDEEF271EE40AD800D37D3C /* DesignableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableLabel.swift; sourceTree = "<group>"; };
 		BFDEEF291EE5F8F500D37D3C /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BFF2C9801ED853C3009936CD /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BFFD37F91EE74C57009E3378 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		CA462C2453101886B3968056 /* Pods-AppLang.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLang.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppLang/Pods-AppLang.debug.xcconfig"; sourceTree = "<group>"; };
 		D308F8CBE4F9D93BF90D86E1 /* Pods-AppLang.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppLang.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppLang/Pods-AppLang.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +85,7 @@
 			children = (
 				BFD88BCD1EE356FE00ED328B /* User.swift */,
 				BFDEEF291EE5F8F500D37D3C /* Question.swift */,
+				BFFD37F91EE74C57009E3378 /* Answer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				BF5E20271EDDFD9A001E780E /* DesignableButton.swift in Sources */,
 				3075A31A1EA7F2D200988815 /* AppDelegate.swift in Sources */,
 				30A616561EAFB36500240D7B /* QuestionViewController.swift in Sources */,
+				BFFD37FA1EE74C57009E3378 /* Answer.swift in Sources */,
 				303CFFE21EE73488003E31B0 /* ResultCell.swift in Sources */,
 				30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */,
 				BFDEEF281EE40AD800D37D3C /* DesignableLabel.swift in Sources */,
