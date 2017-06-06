@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1C1698AC96F9125120D77381 /* Pods_AppLang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3209382EAB26CE56F830CE35 /* Pods_AppLang.framework */; };
+		303CFFE21EE73488003E31B0 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303CFFE01EE73488003E31B0 /* ResultCell.swift */; };
+		303CFFE31EE73488003E31B0 /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303CFFE11EE73488003E31B0 /* ResultCell.xib */; };
 		30560CD51EAE9AF900BF1A3B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */; };
 		30560CD71EAE9B4100BF1A3B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30560CD61EAE9B4100BF1A3B /* LoginViewController.swift */; };
 		3075A31A1EA7F2D200988815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3075A3191EA7F2D200988815 /* AppDelegate.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		303CFFE01EE73488003E31B0 /* ResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
+		303CFFE11EE73488003E31B0 /* ResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		30560CD61EAE9B4100BF1A3B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3075A3161EA7F2D200988815 /* AppLang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppLang.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,8 @@
 				30560CD61EAE9B4100BF1A3B /* LoginViewController.swift */,
 				30A616551EAFB36500240D7B /* QuestionViewController.swift */,
 				30A616571EAFBB0B00240D7B /* ResultViewController.swift */,
+				303CFFE01EE73488003E31B0 /* ResultCell.swift */,
+				303CFFE11EE73488003E31B0 /* ResultCell.xib */,
 				3075A31B1EA7F2D200988815 /* ViewController.swift */,
 				30B7F7831EB8F3190096EA4B /* HomeViewController.swift */,
 				BF9EB2F01ED14357000D32AA /* RememberViewController.swift */,
@@ -238,6 +244,7 @@
 				BF01600F1EBDC50400CE72D6 /* incorrect.wav in Resources */,
 				BF01600D1EBDC17A00CE72D6 /* correct.wav in Resources */,
 				3075A3211EA7F2D200988815 /* Assets.xcassets in Resources */,
+				303CFFE31EE73488003E31B0 /* ResultCell.xib in Resources */,
 				3075A31F1EA7F2D200988815 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +318,7 @@
 				BF5E20271EDDFD9A001E780E /* DesignableButton.swift in Sources */,
 				3075A31A1EA7F2D200988815 /* AppDelegate.swift in Sources */,
 				30A616561EAFB36500240D7B /* QuestionViewController.swift in Sources */,
+				303CFFE21EE73488003E31B0 /* ResultCell.swift in Sources */,
 				30BBCC051EA923B500D864B1 /* CategoryTableViewController.swift in Sources */,
 				BFDEEF281EE40AD800D37D3C /* DesignableLabel.swift in Sources */,
 				30A616581EAFBB0B00240D7B /* ResultViewController.swift in Sources */,

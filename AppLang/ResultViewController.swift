@@ -13,6 +13,7 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     var questionsResult = [String:Array<Any>]()
     
+    @IBOutlet weak var resultTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,8 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.resultTableView.dataSource = self
         self.resultTableView.dataSource = self
         
-        
+        let nib = UINib(nibName: "ResultCell" , bundle: nil)
+        resultTableView.register(nib, forCellReuseIdentifier: "resultCell")
         // Cevaplanamayan sorular listelenecek ve kullanici ister ise tekrar bu sorulara bakabilecek. 
         // Soru id listesi servisle gonderilecek. 
         // yanlis yapilan sorulari sqlite icinde tutmakta fayda var. Soru sayisi sabit deil ise total soru sayisi tutulmali 
@@ -31,7 +33,7 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
         // Dispose of any resources that can be recreated.
     }
     
-    @IBOutlet weak var resultTableView: UITableView!
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -40,9 +42,18 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
         return (questionsResult["Questions"]?.count)!
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        cell?.textLabel?.text = questionsResult["Questions"]?[indexPath.row] as? String
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell") as! ResultCell
+        
+        cell.lblQuestion.text = questionsResult["Questions"]?[indexPath.row] as? String
+        cell.lblSolution.text = questionsResult["Answers"]?[indexPath.row] as? String
+        //cell.lblAnswer.text = questionsResult["Results"]?[indexPath.row] as? String
+        if questionsResult["Answers"]?[indexPath.row] as? String != questionsResult["Results"]?[indexPath.row] as? String {
+            
+            cell.lblAnswer.text = questionsResult["Results"]?[indexPath.row] as? String
+            
+        }
+    
+        return cell
     }
 
 

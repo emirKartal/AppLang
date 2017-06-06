@@ -26,6 +26,7 @@ class QuestionViewController: UIViewController {
     var bombSoundEffect: AVAudioPlayer!
     var qSound : AVPlayer!
     var soundArr = [String]()
+    var results = [String]()
     var dicToResultView = [String:Array<Any>]()
     
     var score = 0
@@ -59,7 +60,7 @@ class QuestionViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         //self.navigationController?.setNavigationBarHidden(true, animated: false)
-        dicToResultView = ["Questions" : questionArr , "Answers" : answerArr , "Mistakes" : [1,2,3]]
+        
         
     }
 
@@ -71,6 +72,7 @@ class QuestionViewController: UIViewController {
     @IBAction func btnBack(_ sender: Any) {
         
         deleteButtons()
+        results.removeLast()
         
         questionNum -= 1
         
@@ -129,6 +131,7 @@ class QuestionViewController: UIViewController {
             let alertView = SCLAlertView(appearance: appearance)
             
             alertView.addButton("Results", action: {
+                self.dicToResultView = ["Questions" : self.questionArr , "Answers" : self.answerArr , "Results" : self.results]
                 self.performSegue(withIdentifier: "toResultView", sender: self.dicToResultView)
             })
             
@@ -175,6 +178,7 @@ class QuestionViewController: UIViewController {
         labelQuestionIndex.text = String(questionNum + 1)
         
         wordNum = 0
+        results.append(AnswerTxt.text!)
         AnswerTxt.text = ""
         wordCheck = ""
         QuestionLbl.text = questionArr[questionNum]
