@@ -29,8 +29,6 @@
 		BF5E20271EDDFD9A001E780E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5E20261EDDFD9A001E780E /* DesignableButton.swift */; };
 		BF74E8101EE8AF4F00711E92 /* DatabaseManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74E80F1EE8AF4F00711E92 /* DatabaseManagement.swift */; };
 		BF74E8121EE8AF9900711E92 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74E8111EE8AF9900711E92 /* Product.swift */; };
-		BF74E8151EE8B93C00711E92 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF74E8131EE8B92C00711E92 /* SQLite.framework */; };
-		BF74E8161EE8B93C00711E92 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF74E8131EE8B92C00711E92 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF9EB2F11ED14357000D32AA /* RememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EB2F01ED14357000D32AA /* RememberViewController.swift */; };
 		BFD88BCE1EE356FE00ED328B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD88BCD1EE356FE00ED328B /* User.swift */; };
 		BFDEEF281EE40AD800D37D3C /* DesignableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDEEF271EE40AD800D37D3C /* DesignableLabel.swift */; };
@@ -38,20 +36,6 @@
 		BFF2C9811ED853C3009936CD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF2C9801ED853C3009936CD /* ProfileViewController.swift */; };
 		BFFD37FA1EE74C57009E3378 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFD37F91EE74C57009E3378 /* Answer.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BF74E8171EE8B93C00711E92 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BF74E8161EE8B93C00711E92 /* SQLite.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		303162D81EE8B71800B2A54A /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../Library/Developer/Xcode/DerivedData/AppLang-ftateqqcfeeugqcidryzundjiswc/Build/Products/Debug-iphonesimulator/SQLite.swift/SQLite.framework"; sourceTree = "<group>"; };
@@ -95,7 +79,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF74E8151EE8B93C00711E92 /* SQLite.framework in Frameworks */,
 				23A4731D5F420D8136DA6859 /* Pods_AppLang.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +203,6 @@
 				3075A3141EA7F2D200988815 /* Resources */,
 				D6FE5A7880BCADDEB37D11B6 /* [CP] Embed Pods Frameworks */,
 				773A695C313D64D4E98B523F /* [CP] Copy Pods Resources */,
-				BF74E8171EE8B93C00711E92 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
