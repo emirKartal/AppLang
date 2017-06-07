@@ -7,6 +7,7 @@ target 'AppLang' do
 
 	pod 'Alamofire'
 	pod 'SwiftyJSON'
-	pod 'SCLAlertView'  
+	pod 'SCLAlertView'
+    pod 'SQLite.swift'
 	
 end
