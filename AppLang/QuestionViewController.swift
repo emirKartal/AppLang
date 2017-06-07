@@ -97,7 +97,10 @@ class QuestionViewController: UIViewController {
         wordCheck = ""
         
         QuestionLbl.text = questionArr[questionNum]
-        createAnswers()
+        UIView.transition(with: AnswerView, duration: 0.4, options: [.transitionFlipFromBottom], animations: { 
+            self.createAnswers()
+        })
+        
         
         labelQuestionIndex.text = String(questionNum + 1)
         
@@ -182,7 +185,10 @@ class QuestionViewController: UIViewController {
         AnswerTxt.text = ""
         wordCheck = ""
         QuestionLbl.text = questionArr[questionNum]
-        createAnswers()
+        UIView.transition(with: AnswerView, duration: 0.4, options: [.transitionFlipFromTop], animations: { 
+            self.createAnswers()
+        })
+        
         
         loadData()
 
