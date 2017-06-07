@@ -6,6 +6,7 @@
 //  Copyright © 2017 Emir Kartal. All rights reserved.
 
 import Foundation
+/*
 import SQLite
 
 class DatabaseManagement {
@@ -105,4 +106,4 @@ class DatabaseManagement {
         return false
     }
     
-}
+}*/

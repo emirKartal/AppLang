@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23A4731D5F420D8136DA6859 /* Pods_AppLang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3209382EAB26CE56F830CE35 /* Pods_AppLang.framework */; };
+		303162DD1EE8B87300B2A54A /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303162D81EE8B71800B2A54A /* SQLite.framework */; };
+		303162DE1EE8B87300B2A54A /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 303162D81EE8B71800B2A54A /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		303CFFE21EE73488003E31B0 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303CFFE01EE73488003E31B0 /* ResultCell.swift */; };
 		303CFFE31EE73488003E31B0 /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 303CFFE11EE73488003E31B0 /* ResultCell.xib */; };
 		30560CD51EAE9AF900BF1A3B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */; };
@@ -26,8 +29,6 @@
 		BF01600F1EBDC50400CE72D6 /* incorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = BF01600E1EBDC50400CE72D6 /* incorrect.wav */; };
 		BF0DE04D1EDAB52B00621216 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0DE04C1EDAB52B00621216 /* DesignableTextField.swift */; };
 		BF5E20271EDDFD9A001E780E /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5E20261EDDFD9A001E780E /* DesignableButton.swift */; };
-		BF74E80C1EE8AE5C00711E92 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF74E8071EE8ADD100711E92 /* SQLite.framework */; };
-		BF74E80D1EE8AE5C00711E92 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BF74E8071EE8ADD100711E92 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF74E8101EE8AF4F00711E92 /* DatabaseManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74E80F1EE8AF4F00711E92 /* DatabaseManagement.swift */; };
 		BF74E8121EE8AF9900711E92 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74E8111EE8AF9900711E92 /* Product.swift */; };
 		BF9EB2F11ED14357000D32AA /* RememberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9EB2F01ED14357000D32AA /* RememberViewController.swift */; };
@@ -39,13 +40,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BF74E80E1EE8AE5C00711E92 /* Embed Frameworks */ = {
+		303162DF1EE8B87300B2A54A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BF74E80D1EE8AE5C00711E92 /* SQLite.framework in Embed Frameworks */,
+				303162DE1EE8B87300B2A54A /* SQLite.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		303162D81EE8B71800B2A54A /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../Library/Developer/Xcode/DerivedData/AppLang-ftateqqcfeeugqcidryzundjiswc/Build/Products/Debug-iphonesimulator/SQLite.swift/SQLite.framework"; sourceTree = "<group>"; };
 		303CFFE01EE73488003E31B0 /* ResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		303CFFE11EE73488003E31B0 /* ResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		30560CD41EAE9AF900BF1A3B /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +77,6 @@
 		BF01600E1EBDC50400CE72D6 /* incorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = incorrect.wav; sourceTree = "<group>"; };
 		BF0DE04C1EDAB52B00621216 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		BF5E20261EDDFD9A001E780E /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
-		BF74E8071EE8ADD100711E92 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = "../../Library/Developer/Xcode/DerivedData/AppLang-gpdzdcsyrbjexrgnrwmvxdvrrmxp/Build/Products/Debug-iphonesimulator/SQLite.swift/SQLite.framework"; sourceTree = "<group>"; };
 		BF74E80F1EE8AF4F00711E92 /* DatabaseManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManagement.swift; sourceTree = "<group>"; };
 		BF74E8111EE8AF9900711E92 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		BF9EB2F01ED14357000D32AA /* RememberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RememberViewController.swift; sourceTree = "<group>"; };
@@ -93,7 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF74E80C1EE8AE5C00711E92 /* SQLite.framework in Frameworks */,
+				303162DD1EE8B87300B2A54A /* SQLite.framework in Frameworks */,
+				23A4731D5F420D8136DA6859 /* Pods_AppLang.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,7 +181,7 @@
 		8CAB0CDBCCD57DB74C531C0D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BF74E8071EE8ADD100711E92 /* SQLite.framework */,
+				303162D81EE8B71800B2A54A /* SQLite.framework */,
 				3209382EAB26CE56F830CE35 /* Pods_AppLang.framework */,
 			);
 			name = Frameworks;
@@ -216,7 +218,7 @@
 				3075A3141EA7F2D200988815 /* Resources */,
 				D6FE5A7880BCADDEB37D11B6 /* [CP] Embed Pods Frameworks */,
 				773A695C313D64D4E98B523F /* [CP] Copy Pods Resources */,
-				BF74E80E1EE8AE5C00711E92 /* Embed Frameworks */,
+				303162DF1EE8B87300B2A54A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,7 +241,7 @@
 				TargetAttributes = {
 					3075A3151EA7F2D200988815 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = YBV5NARZ4A;
+						DevelopmentTeam = 3H9VJDR9FJ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -476,7 +478,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YBV5NARZ4A;
+				DEVELOPMENT_TEAM = 3H9VJDR9FJ;
 				INFOPLIST_FILE = AppLang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -494,7 +496,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YBV5NARZ4A;
+				DEVELOPMENT_TEAM = 3H9VJDR9FJ;
 				INFOPLIST_FILE = AppLang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

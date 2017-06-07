@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/*
 class Product: CustomStringConvertible {
     let id: Int64?
     var name: String
@@ -21,4 +21,4 @@ class Product: CustomStringConvertible {
     var description: String {
         return "id = \(self.id ?? 0), name = \(self.name), imageName = \(self.imageName)"
     }
-}
+}*/
