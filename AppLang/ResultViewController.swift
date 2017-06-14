@@ -45,12 +45,8 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         cell.lblQuestion.text = questionsResult["Questions"]?[indexPath.row] as? String
         cell.lblSolution.text = questionsResult["Answers"]?[indexPath.row] as? String
-        //cell.lblAnswer.text = questionsResult["Results"]?[indexPath.row] as? String
-        if questionsResult["Answers"]?[indexPath.row] as? String != questionsResult["Results"]?[indexPath.row] as? String {
-            
-            cell.lblAnswer.text = questionsResult["Results"]?[indexPath.row] as? String
-            
-        }
+        cell.lblAnswer.text = questionsResult["Results"]?[indexPath.row] as? String
+        
     
         return cell
     }
