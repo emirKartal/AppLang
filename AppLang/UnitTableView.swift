@@ -22,6 +22,8 @@ class UnitTableView: UITableViewController {
         
         tableViewDesign(sender: self)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        let backBtn = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(homeButtonTapped(sender :)))
+        self.navigationItem.leftBarButtonItem = backBtn
         getJSON()
         
     }
@@ -65,6 +67,12 @@ class UnitTableView: UITableViewController {
                 vc.frTopCatDic = sender as! [String:Any]
             }
         }
+    }
+    
+    func homeButtonTapped(sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "toHomeMenu", sender: nil)
+        
     }
     
 

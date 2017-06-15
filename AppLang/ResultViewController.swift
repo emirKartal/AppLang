@@ -24,7 +24,12 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
         resultTableView.register(nib, forCellReuseIdentifier: "resultCell")
         // Cevaplanamayan sorular listelenecek ve kullanici ister ise tekrar bu sorulara bakabilecek. 
         // Soru id listesi servisle gonderilecek. 
-        // yanlis yapilan sorulari sqlite icinde tutmakta fayda var. Soru sayisi sabit deil ise total soru sayisi tutulmali 
+        // yanlis yapilan sorulari sqlite icinde tutmakta fayda var. Soru sayisi sabit deil ise total soru sayisi tutulmali
+        
+        self.navigationItem.hidesBackButton = true
+        let homeButton = UIBarButtonItem(title: "Home", style: UIBarButtonItemStyle.plain, target: self, action: #selector(homeButtonTapped(sender :)))
+        self.navigationItem.leftBarButtonItem = homeButton
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +54,12 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
         
     
         return cell
+    }
+    
+    func homeButtonTapped(sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "toHomeMenu", sender: nil)
+        
     }
 
 
