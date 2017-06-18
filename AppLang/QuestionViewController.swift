@@ -128,6 +128,7 @@ class QuestionViewController: UIViewController {
         
         if questionNum + 1 == questionArr.count{
             
+            results.append(AnswerTxt.text!)
             let appearance = SCLAlertView.SCLAppearance(
                 showCloseButton : false
             )
@@ -145,18 +146,18 @@ class QuestionViewController: UIViewController {
             alertView.addButton("Next Unit", action: {
                 //self.performSegue(withIdentifier: "toResultView", sender: nil)
             })
-
+            
             alertView.showSuccess("Bravooo!!!", subTitle: "Your score is \(score)")
             
             /*if answerArr[questionNum] != AnswerTxt.text{
-                SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
-            }*/
+             SCLAlertView().showError("Uppsssss!!!", subTitle: "Dogrusu : \(answerArr[questionNum])  Cevabin :\(AnswerTxt.text!)")
+             }*/
             
             return
             
         }
-        
-        
+
+    
         if answerArr[questionNum] == AnswerTxt.text {
             
             deleteButtons()
@@ -188,7 +189,6 @@ class QuestionViewController: UIViewController {
         UIView.transition(with: AnswerView, duration: 0.4, options: [.transitionFlipFromTop], animations: { 
             self.createAnswers()
         })
-        
         
         loadData()
 
