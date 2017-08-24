@@ -175,6 +175,7 @@ class QuestionViewController: UIViewController {
         if correctPointCount % 5 == 0 && correctPointCount != 0 {
             
             SCLAlertView().showSuccess("Run Forrest Run :))", subTitle: "Pes pese 5 soru dogru...")
+            correctPointCount = 0 
             
         }
         
