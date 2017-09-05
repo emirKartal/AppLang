@@ -52,8 +52,10 @@ class ResultViewController: UIViewController,UITableViewDelegate,UITableViewData
         cell.lblSolution.text = questionsResult["Answers"]?[indexPath.row] as? String
         
         if cell.lblSolution.text == questionsResult["Results"]?[indexPath.row] as? String {
+            cell.lblAnswer.text = questionsResult["Results"]?[indexPath.row] as? String
             //cell.backgroundColor = UIColor.green
             cell.imgResult.image = UIImage(named: "check.png")
+            
         }else {
             cell.lblAnswer.text = questionsResult["Results"]?[indexPath.row] as? String
             //cell.backgroundColor = UIColor.red
