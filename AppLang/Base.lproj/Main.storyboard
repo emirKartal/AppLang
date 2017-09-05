@@ -1361,8 +1361,8 @@
         <image name="sound" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zN2-sx-jIg"/>
         <segue reference="v2K-i4-aj7"/>
-        <segue reference="n4K-Ia-Ae0"/>
+        <segue reference="zN2-sx-jIg"/>
+        <segue reference="sFM-6E-8Ec"/>
     </inferredMetricsTieBreakers>
 </document>
