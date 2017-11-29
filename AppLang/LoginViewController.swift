@@ -133,7 +133,7 @@ class LoginViewController: UIViewController {
 
     func getJSON(userPassword : String, userEmail : String, deviceId: String) {
         
-        let url = "http://giflisozluk.com/api/v1/student/login"
+        let url = "http://api.bankokuponlar.org/api/v1/student/login"
         
         let params: Parameters = [
             "Password": userPassword,
@@ -198,7 +198,7 @@ class LoginViewController: UIViewController {
     
     func getUserByToken(token : String) {
         
-        let url = "http://giflisozluk.com/api/v1/student"
+        let url = "http://api.bankokuponlar.org/api/v1/student"
         
         let params: Parameters = [
             "password": "",

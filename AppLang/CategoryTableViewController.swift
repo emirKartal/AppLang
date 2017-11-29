@@ -77,7 +77,7 @@ class CategoryTableViewController: UITableViewController {
     func getJSON() {
         //let deviceId = UIDevice.current.identifierForVendor?.uuidString Cihaz ID
         
-        let url = "http://www.giflisozluk.com/api/v1/Category/GetCategoriesByTopCategoryId/\(frTopCatDic["selectedTopCatId"] as! Int)"
+        let url = "http://api.bankokuponlar.org/api/v1/Category/GetCategoriesByTopCategoryId/\(frTopCatDic["selectedTopCatId"] as! Int)"
         
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             

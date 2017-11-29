@@ -412,7 +412,7 @@ class QuestionViewController: UIViewController {
     
     func getJSON() {
         
-        let url = "http://www.giflisozluk.com/api/v1/Question/GetAllQuestions?subcategoryId=\(qId)&fromLanguageId=2&toLanguageId=1"
+        let url = "http://api.bankokuponlar.org/api/v1/Question/GetAllQuestions?subcategoryId=\(qId)&fromLanguageId=2&toLanguageId=1"
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             
             if let data = response.result.value{

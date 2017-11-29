@@ -89,7 +89,7 @@ class SubCategoryTableViewController: UITableViewController {
     
     func getJSON(categoryId : Int) {
         
-        let url = "http://www.giflisozluk.com/api/v1/SubCategory/GetSubCategoriesByCategoryId/\(categoryId)"
+        let url = "http://api.bankokuponlar.org/api/v1/SubCategory/GetSubCategoriesByCategoryId/\(categoryId)"
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             
             if let data = response.result.value{

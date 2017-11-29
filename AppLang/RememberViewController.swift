@@ -115,7 +115,7 @@ class RememberViewController: UIViewController {
 
     func getJSON(userEmail : String, deviceId: String) {
         
-        let url = "http://giflisozluk.com/api/v1/student/remember"
+        let url = "http://api.bankokuponlar.org/api/v1/student/remember"
         
         let params: Parameters = [
             "email": userEmail

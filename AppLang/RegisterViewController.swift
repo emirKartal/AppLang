@@ -180,7 +180,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func getUserByToken(token : String) -> Bool {
         
-        let url = "http://giflisozluk.com/api/v1/student"
+        let url = "http://api.bankokuponlar.org/api/v1/student"
         
         let params: Parameters = [
             "password": "",
@@ -235,7 +235,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func getUserByEmailAndToken(email: String, deviceId: String ) -> Bool {
         
-        let url = "http://giflisozluk.com/api/v1/student/getuser"
+        let url = "http://api.bankokuponlar.org/api/v1/student/getuser"
         
         var state = false
         
@@ -298,7 +298,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             "auth-token": deviceId
         ]
         
-        let url = "http://giflisozluk.com/api/v1/student/newuser"
+        let url = "http://api.bankokuponlar.org/api/v1/student/newuser"
         
         Alamofire.request(url ,method: .post ,parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { response in
             
@@ -356,7 +356,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
             "auth-token": token
         ]
         
-        let url = "http://giflisozluk.com/api/v1/student/updateImageByToken"
+        let url = "http://api.bankokuponlar.org/api/v1/student/updateImageByToken"
         
         let urlImage = URL(fileURLWithPath: localPath)
         
