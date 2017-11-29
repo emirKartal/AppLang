@@ -79,6 +79,8 @@ class CategoryTableViewController: UITableViewController {
         
         let url = "http://api.bankokuponlar.org/api/v1/Category/GetCategoriesByTopCategoryId/\(frTopCatDic["selectedTopCatId"] as! Int)"
         
+        print(frTopCatDic["selectedTopCatId"] )
+        
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             
             if let data = response.result.value{

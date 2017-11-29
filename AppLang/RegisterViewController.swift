@@ -137,6 +137,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         localPath = imagePath
 
         print(localPath)
+        deviceId = UserDefaults.standard.string(forKey: "deviceId")!
         
         uploadImage(local: localPath, token: deviceId)
         
@@ -349,7 +350,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     func uploadImage(local: String, token: String ) {
         
         let parameters = [
-            "FirstName": ""
+            "token": token
             ]
         
         let headers1 = [

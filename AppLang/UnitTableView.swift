@@ -77,7 +77,7 @@ class UnitTableView: UITableViewController {
     
 
     func getJSON() {
-        let url = "http://www.giflisozluk.com/api/v1/topcategory"
+        let url = "http://api.bankokuponlar.org/api/v1/topcategory"
         
         Alamofire.request(url ,method: .get ,parameters: nil, encoding: URLEncoding.default).responseJSON { response in
             

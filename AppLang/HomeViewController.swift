@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         
         let url = UserDefaults.standard.string(forKey: "userImage")!
         print(String(describing: url))
-        get_image("http://management.giflisozluk.com\(String(describing: url))", _imageView: profileImageView)
+        get_image("http://api.bankokuponlar.org\(String(describing: url))", _imageView: profileImageView)
         
         
     }
